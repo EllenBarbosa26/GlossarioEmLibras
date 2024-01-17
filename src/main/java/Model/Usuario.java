@@ -2,5 +2,5 @@ package Model;
 
 public class Usuario {
 
-    // LUCAS ALTEROU AQUI PARA FAZER UM TESTE! ~
+    // LUCAS ALTEROU AQUI PARA FAZER UM TESTE! ~~
 }
