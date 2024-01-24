@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Galada&family=Hubballi&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    margin: 0%;
+    background-color: white;
+
+}
+
+.sidebar {
+    background-color: rgba(151, 131, 230, 1);
+    position: fixed;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    padding: 30px 10px 30px 10px;
+    border-radius: 0px 17px 17px 0px;
+    transition: all 0.2s;
+}
+
+.cabecalho-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.imgusuario {
+    width: 70px;
+    border-radius: 50px;
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+
+.sidebar>header>p {
+    color: #ffffff;
+    margin: 0%;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.button-sidebar>div {
+    display: flex;
+    align-items: center;
+}
+
+.button-sidebar p {
+    margin-left: 10px;
+    color: #ffffff;
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+}
+
+.icon-sidebar {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+
+.button-sidebar {
+    border: none;
+    margin-bottom: 20px;
+    width: 130px;
+    background-color: #ffffff00;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 25px;
+}
+
+.perfil {
+    background-color: rgba(136, 119, 205, 1);
+    border-radius: 50px;
+    padding-left: 15px;
+}
+
+.iconformat {
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute;
+    margin-top: 355%;
+    margin-right: 100px;
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.lua {
+    display: block;
+}
+
+.sol {
+    display: none;
+}
+
+.iconformat:hover {
+    transform: scale(1.1);
+}
+
+.imgusuario:hover {
+    transform: scale(1.2);
+}
+
+.button-sidebar:hover {
+    background-color: rgba(136, 119, 205, 1);
+
+}
+
+.bio {
+    display: flex;
+    margin-top: 80px;
+    margin-left: 85px;
+}
+
+
+main {
+    position: absolute;
+    margin-left: 160px;
+    transition: all 0.2s;
+}
+
+
+
+.imag-perfil {
+    width: 200px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.texto-bio {
+    display: flex;
+    height: 40px;
+    width: 400px;
+    transition: all 0.2s;
+}
+
+.texto-bio h1 {
+    font-size: 25px;
+    margin-top: 0%;
+}
+
+.texto-bio button {
+    margin-top: -3px;
+    margin-left: 30px;
+    border: none;
+    background-color: rgba(165, 153, 211, 1);
+    color: #ffffff;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.legenda-bio {
+    position: absolute;
+    display: block;
+    width: 330px;
+    margin-top: 70px;
+    margin-left: 230px;
+    transition: all 0.2s;
+}
+
+.contricuicoes {
+    margin-left: 90px;
+    margin-top: 50px;
+    transition: all 0.2s;
+}
+
+.conteinareditar {
+    position: absolute;
+    margin-left: 320px;
+    border: solid 1px rgba(151, 131, 230, 1);
+    width: 400px;
+    margin-top: -310px;
+    height: 500px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.452);
+    backdrop-filter: blur(8px);
+    display: none;
+    cursor: grab;
+}
+
+.imgediter input {
+    position: absolute;
+    outline: none;
+    border: solid 1.9px rgba(151, 131, 230, 0.418);
+    width: 160px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 10px;
+    background-color: #ffffff00;
+
+}
+
+.bionovotexto textarea {
+
+    outline: none;
+    border: solid 1.9px rgba(151, 131, 230, 0.418);
+    border-radius: 10px;
+    background-color: #ffffff00;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 340px;
+    padding-bottom: 60px;
+}
+
+.img {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 20px;
+    border: solid 2px rgba(151, 131, 230, 0.418);
+    cursor: pointer;
+}
+
+.camera-icon {
+    position: absolute;
+    font-size: 50px;
+    color: #ffffff;
+    margin-left: 70px;
+    margin-top: 79px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.conteinareditar button {
+    font-family: 'Space Mono', monospace;
+    border: solid 1px rgba(151, 131, 230, 0.418);
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(151, 131, 230, 0.119);
+    margin-left: 285px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#contagem-palavras {
+    position: absolute;
+    margin-left: 20px;
+}
+
+.conteinareditar .x-sair {
+    position: absolute;
+    font-size: 25px;
+    color: rgb(151, 131, 230);
+    margin-left: 365px;
+    margin-top: 6px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.conteinareditar .x-sair:hover {
+    transform: scale(1.3);
+}
+
+
+.conteinareditar button:hover {
+    background-color: rgba(151, 131, 230, 0.557);
+}
+
+.camera-icon:hover {
+    transform: scale(1.3);
+}
+
+.texto-bio button:hover {
+    background-color: rgb(127, 92, 160);
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+.conteiner-video {
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.videos {
+    margin-right: 30px;
+    width: calc(33.33% - 30px);
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.acoes-video {
+    transition: opacity 0.3s ease;
+}
+
+
+.video-test {
+    width: 300px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+.texto-video h1 {
+    font-size: 20px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.texto-video p {
+    margin-top: 0%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.icon {
+    font-size: 25px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.icon-cometario {
+    margin-top: -65px;
+    margin-left: 240px;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.icon-sem-curtida {
+    margin-top: -65px;
+    margin-left: 270px;
+    display: block;
+    transition: color 0.3s ease-in-out;
+}
+
+.icon-com-curtida {
+    margin-top: -65px;
+    margin-left: 270px;
+    color: red;
+    display: none;
+}
+
+.conteiner-video:hover .acoes-video {
+    opacity: 1;
+}
+
+.icon-cometario:hover{
+    color: rgb(126, 59, 193);
+}
+
+.icon-sem-curtida:hover{
+    color: rgb(223, 103, 103);
+}
+
+.texto-video h1:hover{
+    color: rgb(126, 59, 193);
+}
+
+.texto-video p:hover{
+    color: rgb(126, 59, 193);
+}
+
+/* ----------------------------------------------------------------------------- */
+
+.conteiner-comentario{
+    position: absolute;
+    margin-left: 320px;
+    border: solid 1px rgba(151, 131, 230, 1);
+    width: 400px;
+    margin-top: -20px;
+    height: 500px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.884);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 500px; 
+    overflow-y: auto;
+    z-index: 1000; 
+    display: none;
+}
+
+.comentarioheart{
+    position: absolute;
+    margin-top: -65px;
+    margin-left: 230px;
+}
+
+.numero-de-curtidas{
+    position: absolute;
+    margin-top: -63px;
+    margin-left: 260px;
+    font-size: 13px;
+}
+
+.video-demostracao{
+    margin-top: 30px;
+}
+
+.img-usuario{
+    position: absolute;
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.icon-x-comentario{
+    position: absolute;
+    font-size: 30px;
+    margin-left: 310px;
+    margin-top: -30px;
+    transition: transform 0.3s;
+}
+
+.formulario-comentario{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+#novocomentario{
+    margin-left: 30px;
+    width: 260px;
+    height: 130px;
+    border: solid 1px rgba(151, 131, 230, 1);
+    border-radius: 15px;
+}
+
+.img-novo-comentario{
+    margin-left: -30px;
+    margin-top: -5px;
+}
+
+.button-eviar-novo-comentario{
+    background-color: rgba(151, 131, 230, 1);
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    color: aliceblue;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -37px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.3s;
+}
+
+.comentarios{
+    margin-top: 70px;
+    width: 320px;
+    padding-bottom: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border: solid 1px rgba(151, 131, 230, 1);
+    border-radius: 15px;
+}
+
+.img-comentrio{
+    width: 30px;
+    margin-left: -40px;
+    margin-top: -8px;
+}
+
+textarea{
+    resize: none;
+}
+
+.button-eviar-novo-comentario:hover{
+    background-color: rgb(114, 99, 174);;
+    transform: scale(1.1);
+}
+
+.img-usuario:hover{
+    transform: scale(1.3);
+}
+
+.icon-x-comentario:hover{
+    transform: scale(1.3);
+}
+
+.button-publicar-video:hover{
+    transform: scale(1.1);
+}
+
+.icon-video:hover{
+    transform: scale(1.3);
+}
+
+@media(width < 890px) {
+    .conteinareditar {
+        margin-left: 90px;
+        background-color: #ffffffc1;
+        transition: all 0.2s;
+    }
+
+
+}
+
+@media (width < 802px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    main {
+        margin-left: 10px;
+    }
+
+    .button-sidebar p {
+        display: none;
+    }
+
+    .icon-sidebar {
+        margin-top: 8px;
+    }
+
+    .imgusuario {
+        width: 40px;
+        margin-left: 2px;
+        border-radius: 50px;
+        transition: transform 0.4s;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .perfil {
+        background-color: #ffffff00;
+        margin-left: -15px;
+    }
+
+
+    .sidebar>header>p {
+        font-size: 10px;
+        margin-left: 20px;
+        color: #ffffff;
+        margin: 0%;
+        margin-bottom: 40px;
+        display: none;
+    }
+
+    .button-sidebar {
+        display: flex;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar bottom>div {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .iconformat {
+        font-size: 25px;
+        color: #ffffff;
+        position: absolute;
+        margin-top: 870%;
+        margin-right: 0px;
+        transition: transform 0.4s;
+        cursor: pointer;
+    }
+
+    .conteinareditar {
+        margin-top: -38%;
+        background-color: #ffffffc1;
+        transition: all 0.2s;
+    }
+
+
+}
+
+@media(width < 645px) {
+    .texto-bio {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        height: 405px;
+        width: 40px;
+        margin-left: 200px;
+    }
+
+    .contricuicoes {
+        margin-left: 90px;
+        margin-top: 150px;
+    }
+
+    .legenda-bio {
+        position: absolute;
+        display: block;
+        width: 330px;
+        margin-top: 210px;
+        margin-left: 30px;
+    }
+
+    .conteinareditar {
+        margin-top: -65%;
+    }
+}
