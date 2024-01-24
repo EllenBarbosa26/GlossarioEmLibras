@@ -1,0 +1,241 @@
+.categorias{
+    background-color: rgba(136, 119, 205, 1);
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+    cursor: pointer; 
+   
+}
+
+
+main {
+    margin-left: 160px;
+    transition: all 0.2s;
+    margin-top: 0%;
+}
+
+.header-categoria{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+.textolibras{
+    font-size: 30px;
+    margin-left: 20px;
+    color: rgb(128, 111, 195);
+    cursor: pointer;
+    width: 165px;
+    margin-top: 0%;
+}
+
+.barra-de-pesquisa{
+    background-color: rgba(151, 131, 230, 1);
+    padding: 10px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-pesquisa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ico-lupa{
+    border: none;
+    background-color:rgb(254, 254, 255) ;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+#pesquisa{
+    width: 180px;
+    height: 40px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    background-color: rgba(245, 222, 179, 0);
+    color: aliceblue;
+}
+
+#pesquisa::placeholder {
+    color: white; 
+}
+
+.conteiner-categorias{
+    margin-top: 100px;
+    margin-left: 25px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.catagoria{
+    background-color: rgba(198, 187, 243, 1);
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 30px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.quant-videos{
+    display: flex;
+    margin: 0px;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 230px;
+}
+
+
+.imagcategoria{
+    width: 190px;
+}
+
+.catagoria p{
+    color: aliceblue;
+    font-size: 20px;
+    margin-top: 10%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.quant-videos  p{
+    font-size: 15px;
+    margin-left: 3px;
+    display: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.catagoria:hover{
+    background-color: rgb(149, 142, 180);
+}
+
+.catagoria:hover .quant-videos p {
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+.catagoria:hover > p{
+    color: black;
+}
+
+@media (width < 802px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    main {
+        margin-left: 10px;
+    }
+
+    .button-sidebar p {
+        display: none;
+    }
+
+    .icon-sidebar {
+        margin-top: 8px;
+    }
+
+    .imgusuario {
+        width: 40px;
+        margin-left: 2px;
+        border-radius: 50px;
+        transition: transform 0.4s;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .perfil {
+        background-color: #ffffff00;
+        margin-left: -15px;
+    }
+
+
+    .sidebar>header>p {
+        font-size: 10px;
+        margin-left: 20px;
+        color: #ffffff;
+        margin: 0%;
+        margin-bottom: 40px;
+        display: none;
+    }
+
+    .button-sidebar {
+        display: flex;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar bottom>div {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .iconformat {
+        font-size: 25px;
+        color: #ffffff;
+        position: absolute;
+        margin-top: 870%;
+        margin-right: 0px;
+        transition: transform 0.4s;
+        cursor: pointer;
+    }
+
+    main {
+        margin-left: 60px;
+        transition: all 0.2s;
+        margin-top: 0%;
+    }
+
+    .conteiner-categorias{
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (width < 1209px){
+    .conteiner-categorias{
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .catagoria{
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 30px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (width < 1131px){
+    .catagoria{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 30px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    
+}

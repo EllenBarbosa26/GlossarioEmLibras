@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Galada&family=Hubballi&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Space Mono', monospace;
+    margin: 0%;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login h3 {
+    color: rgba(86, 68, 154, 1);
+    font-size: 15px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.login ion-icon {
+    color: rgba(86, 68, 154, 1);
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cabecalho h1 {
+    color: rgba(86, 68, 154, 1);
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.cabecalho h2 {
+    color: rgba(87, 68, 154, 0.221);
+    font-size: 17px;
+    margin-left: 9px;
+}
+
+
+.test {
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+
+}
+
+.paralogar {
+    background-color: rgba(194, 182, 244, 1);
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+    margin-top: 10px;
+    position: absolute;
+    display: none;
+}
+
+.conteinertest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paralogar img {
+    width: 100px;
+    margin-top: 10px;
+}
+
+.paralogar ion-icon {
+    font-size: 25px;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: azure;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.paralogar h1 {
+    color: white;
+    margin-top: 0%;
+    font-size: 30px;
+    margin-bottom: 5%;
+}
+
+.paralogar button {
+    border: none;
+    background-color: rgba(151, 131, 230, 1);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.testlogar {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    margin-left: 400px;
+}
+
+.logargoogle {
+    background-color: rgba(194, 182, 244, 1);
+    width: 400px;
+    height: 350px;
+    border-radius: 15px;
+    position: absolute;
+    box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.311);
+    display: none;
+}
+
+.logargoogle p {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -20px;
+    color: #ffffff;
+
+}
+
+#nome-usuario-cadastro {
+    width: 250px;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+    position: absolute;
+    margin-left: -90px;
+    margin-top: 10px;
+    
+}
+
+#email-cadastro {
+    width: 250px;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+#senha-cadastro {
+    width: 250px;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+    position: absolute;
+    margin-top: 90px;
+    margin-left: -90px;
+}
+
+.button-cadastro {
+    margin-top: 150px;
+    border: none;
+    width: 100px;
+    height: 35px;
+    background-color: rgba(151, 131, 230, 1);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.4s;
+}
+
+.conteinergoogle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.iconx {
+    position: absolute;
+    width: 24px;
+    margin-top: 1%;
+    margin-left: 370px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+
+}
+
+.vector {
+    width: 60px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+
+.testlogarUsuario {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    margin-left: 400px;
+}
+
+
+.logarUsuario {
+    background-color: rgba(194, 182, 244, 1);
+    width: 400px;
+    height: 250px;
+    border-radius: 15px;
+    position: absolute;
+    box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.311);
+    display: none;
+}
+
+.conteinergoogleUsuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.conteinergoogleUsuario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0%;
+}
+
+.conteinergoogleUsuario p {
+    margin: 0%;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.conteinergoogleUsuario input {
+    border: 1px solid #ffffff;
+    outline: none;
+    margin: 10;
+    padding: 10;
+    background: none;
+    font: inherit;
+    color: white;
+    margin-top: 3%;
+}
+
+::placeholder {
+    font-size: 13px;
+    color: #000000;
+    padding-left: 10px;
+}
+
+.conteinergoogleUsuario button {
+    margin-top: 15px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(151, 131, 230, 1);
+    color: aliceblue;
+    font: inherit;
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(88, 14, 103, 0.311);
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.conteinergoogleUsuario .vector {
+    margin-bottom: 1%;
+    margin-top: 2%;
+}
+
+
+.testlogarModerador {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    margin-left: 400px;
+}
+
+.logarModerador {
+    background-color: rgba(194, 182, 244, 1);
+    width: 400px;
+    height: 250px;
+    border-radius: 15px;
+    position: absolute;
+    box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.311);
+    display: none;
+}
+
+.conteinergoogleModerador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.conteinergoogleModerador form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0%;
+}
+
+.conteinergoogleModerador p {
+    margin: 0%;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.conteinergoogleModerador input {
+    border: 1px solid #ffffff;
+    outline: none;
+    margin: 10;
+    padding: 10;
+    background: none;
+    font: inherit;
+    color: white;
+}
+
+.conteinergoogleModerador button {
+    margin-top: 15px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(151, 131, 230, 1);
+    color: aliceblue;
+    font: inherit;
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(88, 14, 103, 0.311);
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.conteinergoogleModerador .vector {
+    margin-bottom: 5%;
+}
+
+.iconsair {
+    position: absolute;
+    width: 24px;
+    margin-top: 1%;
+    margin-left: 370px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.iconsairusuario {
+    position: absolute;
+    width: 24px;
+    margin-top: 1%;
+    margin-left: 370px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.conteiner1 {
+    background-color: rgba(120, 92, 230, 0.45);
+    color: rgba(120, 92, 230, 0);
+    height: 15px;
+}
+
+.bemvindo {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.bemvindo img {
+    width: 450px;
+    margin: 0%;
+    margin-left: 150px;
+}
+
+.bemvindo h1 {
+    font-size: 50px;
+    margin: 0px;
+    color: rgba(86, 68, 154, 1);
+    padding: 0px;
+
+}
+
+.bemvindo h2 {
+    font-size: 25px;
+    margin: 0%;
+}
+
+.bemvindo p {
+    font-size: 25px;
+    margin: 0%;
+    line-height: 38px;
+    margin-bottom: 30px;
+}
+
+.bemvindo button {
+    background: rgba(126, 97, 239, 1);
+    border: none;
+    color: white;
+    font: inherit;
+    padding: 13px;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.311);
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.sobre {
+    margin-top: 90px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: 1px solid rgba(120, 92, 230, 1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    margin-bottom: 90px;
+}
+
+.sobre h2 {
+    text-align: center;
+    margin-top: 0%;
+    font-size: 40px;
+}
+
+.sobre p {
+    text-align: center;
+    margin-top: 0%;
+    font-size: 20px;
+}
+
+.conteiner2 {
+    background-color: rgba(120, 92, 230, 0.45);
+    color: rgba(120, 92, 230, 0);
+    height: 15px;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rodape h1 {
+    color: rgba(86, 68, 154, 1);
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.rodape h2 {
+    color: rgba(87, 68, 154, 0.221);
+    font-size: 17px;
+    margin-left: 50px;
+}
+
+.bemvindo button:hover {
+    background-color: rgb(92, 10, 180);
+}
+
+.login h3:hover {
+    color: rgb(1, 9, 10);
+}
+
+.login ion-icon:hover {
+    color: rgb(1, 9, 10);
+}
+
+.paralogar button:hover {
+    background-color: rgb(111, 41, 185);
+}
+
+.paralogar ion-icon:hover {
+    color: rgb(111, 41, 185);
+}
+
+.conteinergoogle button:hover {
+    background-color: rgb(111, 41, 185);
+}
+
+.iconx:hover {
+    width: 26px;
+    margin-top: 1%;
+}
+
+.conteinergoogleUsuario button:hover {
+    background-color: rgb(111, 41, 185);
+}
+
+.conteinergoogleModerador button:hover {
+    background-color: rgb(111, 41, 185);
+}
+
+.iconsair:hover {
+    width: 26px;
+    margin-top: 1%;
+}
+
+.button-cadastro:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+@media (max-width: 908px) {
+    .bemvindo {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bemvindo img {
+        width: 450px;
+        margin: 0%;
+    }
+}
+
+
+@media (max-width: 1116px) {
+    .testlogar {
+        margin-left: 100px;
+    }
+
+    .testlogarUsuario {
+        margin-left: 100px;
+    }
+
+}
+
+@media (max-width: 857px) {
+    .testlogar {
+        margin-left: 50px;
+    }
+
+    .testlogarUsuario {
+        margin-left: 100px;
+    }
+
+}
