@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/scr/img/image 2.png" type="image/librasdev">
-    <link rel="stylesheet" href="/scr/css/perfilestilos.css">
-    <script src="/scr/Javc/perfil.js"></script>
-    <script src="/scr/Javc/scripttamiline.js"></script>
-    <script src="/scr/Javc/like.js"></script>
+    <link rel="shortcut icon" href="img/image 2.png" type="image/librasdev">
+    <link rel="stylesheet" href="css/perfilestilos.css">
+    <script src="Javc/perfil.js"></script>
+    <script src="Javc/scripttamiline.js"></script>
+    <script src="Javc/like.js"></script>
     <title>LibrasDev</title>
 </head>
 
@@ -16,7 +16,7 @@
     <aside class="sidebar">
 
         <header class="cabecalho-sidebar">
-            <a href="/scr/timeline.html"> <img class="imgusuario" src="/scr/img/image 2.png"
+            <a href="timeline.html"> <img class="imgusuario" src="img/image 2.png"
                     alt="sem foto de perfil"></a>
 
             <p class="usuariosidebar">@Usuario</p>
@@ -29,7 +29,7 @@
             </div>
         </button>
 
-        <a href="/scr/categoria.html">
+        <a href="categoria.html">
             <button class="button-sidebar">
             <div>
                 <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
@@ -63,7 +63,7 @@
     <main>
         <header class="bio-perfil">
             <div class="bio">
-                <img class="imag-perfil" src="/scr/img/Usuario-img.jpg" alt="">
+                <img class="imag-perfil" src="img/Usuario-img.jpg" alt="">
                 <div class="texto-bio">
                     <h1 class="usuario">@Usuario</h1>
                     <button class="editar-perfil">Editar Perfil</button>
@@ -84,7 +84,7 @@
                     <ion-icon class="x-sair" name="backspace-outline"></ion-icon>
                     <input type="file" id="uploadInput" style="display: none;">
                     <ion-icon class="camera-icon" name="camera-outline" onclick="openFileUploader()"></ion-icon>
-                    <img class="img" src="/scr/img/Usuario-img.jpg" alt="">
+                    <img class="img" src="img/Usuario-img.jpg" alt="">
                     <input type="text" name="NovoNome" id="novonome" placeholder="@NovoNome" required>
                 </div>
                 <div class="bionovotexto">
@@ -99,7 +99,7 @@
         <div class="conteiner-comentario">
             <div class="video-demostracao">
                 <ion-icon class="icon-x-comentario" name="close"></ion-icon>
-                <video class="video-test" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
+                <video class="video-test" src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
                     loop muted></video>
                 <div class="texto-video">
                     <h1 class="novonome">Nome do video</h1>
@@ -112,7 +112,7 @@
 
             <div class="formulario-comentario">
                 <form action="">
-                    <img class="img-usuario img-novo-comentario" src="/scr/img/Usuario-img.jpg" alt="">
+                    <img class="img-usuario img-novo-comentario" src="img/Usuario-img.jpg" alt="">
                     <textarea name="NovoComentario" id="novocomentario" cols="30" rows="10"
                         placeholder="Novo Comentario" oninput="limitarPalavras()" required></textarea>
                     <p id="contagem-palavras">0/10 palavras</p>
@@ -120,7 +120,7 @@
                 </form>
             </div>
             <div class="comentarios">
-                <img class="img-usuario img-comentrio" src="/scr/img/Usuario-img.jpg" alt="">
+                <img class="img-usuario img-comentrio" src="img/Usuario-img.jpg" alt="">
                 <p>Comentario publicado</p>
             </div>
         </div>
@@ -140,7 +140,7 @@
 
             <div class="videos">
 
-                <video class="video-test" src="/scr/video/Vídeo_teste.mp4" loop muted></video>
+                <video class="video-test" src="video/Vídeo_teste.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video novonome">Nome do video</h1>
@@ -153,21 +153,7 @@
             </div>
             <div class="videos">
                 <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video novonome">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video novonome">Nome do video</h1>
@@ -181,7 +167,7 @@
 
             <div class="videos">
                 <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video novonome">Nome do video</h1>
@@ -195,7 +181,21 @@
 
             <div class="videos">
                 <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                <div class="acoes-video">
+                    <div class="texto-video">
+                        <h1 class="nome-do-video novonome">Nome do video</h1>
+                        <p class="usuario">@Usuario</p>
+                    </div>
+                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
+                </div>
+            </div>
+
+            <div class="videos">
+                <video class="video-test video-test2"
+                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video">Nome do video</h1>

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/scr/img/image 2.png" type="image/librasdev">
-    <link rel="stylesheet" href="/scr/css/timeline.css">
-    <script src="/scr/Javc/scripttamiline.js"></script>
-    <link rel="stylesheet" href="/scr/css/catagoriaestilos.css">
+    <link rel="shortcut icon" href="img/image 2.png" type="image/librasdev">
+    <link rel="stylesheet" href="css/timeline.css">
+    <script src="Javc/scripttamiline.js"></script>
+    <link rel="stylesheet" href="css/catagoriaestilos.css">
     <title>LibrasDev</title>
 </head>
 <body>
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
-            <a href="/scr/perfil.html"><img class="imgusuario" src="/scr/img/Usuario-img.jpg" alt="sem foto de perfil"></a>
+            <a href="perfil.html"><img class="imgusuario" src="img/Usuario-img.jpg" alt="sem foto de perfil"></a>
             <p>@Usuario</p>
         </header>
 
-        <a href="/scr/perfil.html">
+        <a href="perfil.html">
             <button class="button-sidebar">
             <div>
                 <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
@@ -25,7 +25,7 @@
         </button>
         </a>
         
-        <a href="/scr/categoria.html">
+        <a href="categoria.html">
             <button class="button-sidebar categorias">
             <div>
                 <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
@@ -56,7 +56,7 @@
 
     <main>
         <header class="header-categoria">
-            <a href="/scr/timeline.html"><h1 class="textolibras">LibrasDev</h1></a>
+            <a href="timeline.html"><h1 class="textolibras">LibrasDev</h1></a>
             <div class="barra-de-pesquisa">
                 <form class="form-pesquisa" action="">
                     
@@ -74,7 +74,7 @@
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
-                <img class="imagcategoria" src="/scr/img/desktop-outline.svg" alt="">
+                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
                 <p>Software</p>
             </div>
 
@@ -83,7 +83,7 @@
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
-                <img class="imagcategoria" src="/scr/img/desktop-outline.svg" alt="">
+                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
                 <p>Software</p>
             </div>
 
@@ -92,7 +92,7 @@
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
-                <img class="imagcategoria" src="/scr/img/desktop-outline.svg" alt="">
+                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
                 <p>Software</p>
             </div>
 
@@ -101,7 +101,7 @@
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
-                <img class="imagcategoria" src="/scr/img/desktop-outline.svg" alt="">
+                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
                 <p>Software</p>
             </div>
 
