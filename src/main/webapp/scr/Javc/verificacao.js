@@ -22,4 +22,4 @@ function verificarModerador(){
         // Se as credenciais estiverem incorretas, exibe uma mensagem de erro
         alert("Código incorreto. Tente novamente.");
       }
-}  
+}

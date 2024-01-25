@@ -15,13 +15,13 @@ public class Controller extends HttpServlet {
 
         if (acao != null) {
             if ("Perfil".equals(acao)) {
-                new PerfilController().executa(request, response);
+                //new PerfilController().executa(request, response);
             } else if ("Cadastrar".equals(acao)) {
-                new CadastroController().executa(request, response);
+              //  new CadastroController().executa(request, response);
             } else if ("Login".equals(acao)) {
                 new LoginController().executa(request, response);
             } else if ("Moderador".equals(acao)) {
-                new ModeradorController().executa(request, response);
+               // new ModeradorController().executa(request, response);
             } else {
                 // Lógica para tratamento de ação desconhecida, se necessário
             }

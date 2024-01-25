@@ -1,11 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="Model.Usuario" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
-    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="scr/css/timeline.css">
     <script src="Javc/scripttamiline.js"></script>
     <script src="Javc/like.js"></script>
     <title>LibrasDev</title>
@@ -16,7 +20,7 @@
         <header class="cabecalho-sidebar">
             <a href="perfil.html"><img class="imgusuario" src="img/Usuario-img.jpg"
                     alt="sem foto de perfil"></a>
-            <p>@Usuario</p>
+            <p><%= usuario.getNome() %></p>
         </header>
 
         <a href="perfil.html">
@@ -88,18 +92,7 @@
         </div>
 
         <div class="conteiner-comentario">
-            <div class="video-demostracao">
-                <ion-icon class="icon-x-comentario" name="close"></ion-icon>
-                <video class="video-test" src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
-                    loop muted></video>
-                <div class="texto-video">
-                    <h1 class="novonome">Nome do video</h1>
-                    <p class="usuario">@Usuario</p>
-                </div>
-                <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
-                <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
-                <p class="numero-de-curtidas">349</p>
-            </div>
+
 
             <div class="formulario-comentario">
                 <form action="">
@@ -110,6 +103,7 @@
                     <button type="submit" class="button-eviar-novo-comentario">Enviar</button>
                 </form>
             </div>
+
             <div class="comentarios">
                 <img class="img-usuario img-comentrio" src="img/Usuario-img.jpg" alt="">
                 <p>Comentario publicado</p>
@@ -118,19 +112,8 @@
 
         <div class="conteiner-video">
 
-            <div class="videos">
 
-                <video class="video-test" src="video/Vídeo_teste.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
+<% for(int i = 0; i <20; i++) {%>
             <div class="videos">
                 <video class="video-test video-test2"
                     src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
@@ -142,52 +125,13 @@
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
                     <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
+
+
                 </div>
             </div>
+            <%}%>
 
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
 
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-        </div>
 
     </main>
 
