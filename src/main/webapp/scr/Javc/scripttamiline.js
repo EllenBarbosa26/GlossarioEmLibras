@@ -15,6 +15,23 @@ function limitarPalavrasPublicar() {
 }
 
 
+function limitarPalavrasEditar() {
+    var input = document.getElementById('nome-video-editar');
+    var contagemPalavras = document.getElementById('contagem-palavras-editar');
+
+    var palavras = input.value.split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    });
+
+    if (palavras.length > 4) {
+        input.value = palavras.slice(0, 4).join(" ");
+        palavras = palavras.slice(0, 4);
+    }
+
+    contagemPalavras.textContent = palavras.length + '/4 palavras';
+}
+
+
 function limitarPalavras() {
     var textarea = document.getElementById('novocomentario');
     var contagemPalavras = document.getElementById('contagem-palavras');
@@ -129,6 +146,27 @@ iconpublicar.forEach(function (icon, index) {
 });
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var saireditar = document.querySelectorAll('.icon-x-editar');
+    var conteinereditar = document.querySelectorAll('.conteiner-editar-video');
+    var iconeditar = document.querySelectorAll('.opcoes-especiais');
+    var conteinercomentario = document.querySelectorAll('.conteiner-comentario');
+
+    saireditar.forEach(function (sair, index) {
+        sair.addEventListener('click', function () {
+            conteinereditar[index].style.display = 'none';
+        });
+    });
+
+    iconeditar.forEach(function (icon, index) {
+        icon.addEventListener('click', function () {
+            conteinereditar[index].style.display = 'block';
+            conteinercomentario[index].style.display = 'none';
+        });
+    });
+});
 
 
 document.addEventListener('DOMContentLoaded', function() {

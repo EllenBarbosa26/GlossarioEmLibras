@@ -96,6 +96,18 @@
 
         </div>
 
+        <div class="conteiner-editar-video">
+                    <ion-icon class="icon-x-editar" name="close"></ion-icon>
+                    <form action="">
+                        <video class="video-test up-video-editar" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" muted loop></video>
+                        <input type="text" name="Categoria" id="categoria-video-editar" placeholder="Categoria" required>
+                        <input type="text" name="NomeDoVideo" id="nome-video-editar" oninput="limitarPalavrasEditar()" placeholder="Novo nome do Video" required>
+                        <p class="contagem-publica" id="contagem-palavras-editar">0/4 palavras</p>
+                        <ion-icon name="trash-outline" class="icon icon-lixeira"></ion-icon>
+                        <button type="submit" class="button-editar-video">Editar</button>
+                    </form>
+                </div>
+
         <div class="conteiner-comentario">
             <div class="video-demostracao">
                 <ion-icon class="icon-x-comentario" name="close"></ion-icon>
