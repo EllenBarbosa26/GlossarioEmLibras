@@ -421,6 +421,14 @@ main {
     transition: transform 0.3s;
 }
 
+.opcoes-especiais{
+    position: absolute;
+    margin-top: -65px;
+    margin-left: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
 .formulario-comentario{
     display: flex;
     flex-direction: column;
@@ -498,6 +506,10 @@ textarea{
 
 .icon-x-publicacao:hover{
     transform: scale(1.3);
+}
+
+.opcoes-especiais:hover{
+    color: rgb(114, 99, 174);;
 }
 
 @media (width < 682px) {

@@ -92,7 +92,22 @@
         </div>
 
         <div class="conteiner-comentario">
+        <div class="video-demostracao">
+                        <ion-icon class="icon-x-comentario" name="close"></ion-icon>
+                        <video class="video-test" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
+                            loop muted></video>
+                        <div class="texto-video">
+                            <h1 class="novonome">Nome do video</h1>
+                            <p class="usuario">@Usuario</p>
+                        </div>
 
+                        <!-- if -->
+                        <ion-icon name="options-outline" class="icon opcoes-especiais"></ion-icon>
+
+                        <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
+                        <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
+                        <p class="numero-de-curtidas">349</p>
+                    </div>
 
             <div class="formulario-comentario">
                 <form action="">
