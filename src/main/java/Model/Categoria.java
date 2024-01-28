@@ -1,18 +1,24 @@
 package Model;
 
 public class Categoria {
-    private String id;
+    private int id;
     private String nome;
+    private String descricao;
 
     public Categoria(String nome, String descricao) {
         this.nome = nome;
+        this.descricao = descricao;
     }
 
-    public String getId() {
+    public Categoria() {
+
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -22,5 +28,12 @@ public class Categoria {
 
     public String getNome() {
         return nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    public String getDescricao() {
+        return descricao;
     }
 }

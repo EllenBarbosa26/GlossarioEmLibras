@@ -8,6 +8,7 @@ public class Moderador extends Usuario {
         this.codigo = codigo;
     }
 
+
     public int getCodigo() {
         return codigo;
     }
