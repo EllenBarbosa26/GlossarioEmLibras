@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class VideoDAO {
@@ -15,59 +16,51 @@ public class VideoDAO {
     }
 
     public void addVideo(Video video) throws SQLException {
-        String query = "INSERT INTO video (title, arquivo, upload_date, user_id, category) VALUES (?, ?, ?, ?, ?)";
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, video.getTitle());
-            statement.setBytes(2, video.getArquivo());
-            statement.setDate(3, video.getUploadDate());
-            statement.setInt(4, video.getUserId());
-            statement.setInt(5, video.getCategory());
-
+        String sql = "INSERT INTO video (video_id, title, arquivo_url, upload_date, user_id, category_id) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, video.getVideoId());
+            statement.setString(2, video.getTitle());
+            statement.setString(3, video.getArquivoUrl());
+            statement.setDate(4, new java.sql.Date(video.getUploadDate().getTime()));
+            statement.setInt(5, video.getUserId());
+            statement.setInt(6, video.getCategoryId());
             statement.executeUpdate();
         }
     }
 
     public Video getVideoById(int videoId) throws SQLException {
-        String query = "SELECT * FROM video WHERE video_id = ?";
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        String sql = "SELECT * FROM video WHERE video_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, videoId);
-
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    return mapResultSetToVideo(resultSet);
+                    return createVideoFromResultSet(resultSet);
                 }
             }
         }
-
         return null;
     }
 
     public List<Video> getAllVideos() throws SQLException {
         List<Video> videos = new ArrayList<>();
-        String query = "SELECT * FROM video";
-
-        try (PreparedStatement statement = connection.prepareStatement(query);
+        String sql = "SELECT * FROM video";
+        try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                Video video = mapResultSetToVideo(resultSet);
-                videos.add(video);
+                videos.add(createVideoFromResultSet(resultSet));
             }
         }
-
         return videos;
     }
 
-    private Video mapResultSetToVideo(ResultSet resultSet) throws SQLException {
-        Video video = new Video();
-        video.setCodigo(resultSet.getInt("video_id"));
-        video.setTitulo(resultSet.getString("title"));
-        video.setArquivo(resultSet.getBytes("arquivo"));
-        video.setData(String.valueOf(resultSet.getDate("upload_date")));
-        video.setUserId(resultSet.getInt("user_id"));
-        video.setCategory(resultSet.getInt("category"));
+    private Video createVideoFromResultSet(ResultSet resultSet) throws SQLException {
+        int videoId = resultSet.getInt("video_id");
+        String title = resultSet.getString("title");
+        String arquivoUrl = resultSet.getString("arquivo_url");
+        Date uploadDate = resultSet.getDate("upload_date");
+        int userId = resultSet.getInt("user_id");
+        int categoryId = resultSet.getInt("category_id");
 
-        return video;
+        return new Video(videoId, title, arquivoUrl, uploadDate, userId, categoryId);
     }
 }

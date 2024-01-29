@@ -1,27 +1,22 @@
 package Model;
 
+import java.util.Date;
+
 public class Video {
     private int videoId;
     private String title;
-    private Blob arquivo;
+    private String arquivoUrl;
     private Date uploadDate;
     private int userId;
-    private int category;
+    private int categoryId;
 
-    public byte[] getArquivoBytes() {
-        try {
-            return arquivo.getBytes(1, (int) arquivo.length());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    public void setArquivoBytes(byte[] bytes) {
-        try {
-            this.arquivo = new javax.sql.rowset.serial.SerialBlob(bytes);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public Video(int videoId, String title, String arquivoUrl, Date uploadDate, int userId, int categoryId) {
+        this.videoId = videoId;
+        this.title = title;
+        this.arquivoUrl = arquivoUrl;
+        this.uploadDate = uploadDate;
+        this.userId = userId;
+        this.categoryId = categoryId;
     }
 
     public int getVideoId() {
@@ -40,12 +35,12 @@ public class Video {
         this.title = title;
     }
 
-    public Blob getArquivo() {
-        return arquivo;
+    public String getArquivoUrl() {
+        return arquivoUrl;
     }
 
-    public void setArquivo(Blob arquivo) {
-        this.arquivo = arquivo;
+    public void setArquivoUrl(String arquivoUrl) {
+        this.arquivoUrl = arquivoUrl;
     }
 
     public Date getUploadDate() {
@@ -64,11 +59,11 @@ public class Video {
         this.userId = userId;
     }
 
-    public int getCategory() {
-        return category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(int category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }
