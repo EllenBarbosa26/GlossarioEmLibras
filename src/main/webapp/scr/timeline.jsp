@@ -23,7 +23,7 @@
             <p><%= usuario.getNome() %></p>
         </header>
 
-        <a href="perfil.html">
+        <a href="perfil.jsp">
             <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
@@ -32,7 +32,7 @@
             </button>
         </a>
 
-        <a href="categoria.html">
+        <a href="categoria.jsp">
             <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
@@ -82,7 +82,7 @@
         <div class="conteiner-publicacao">
             <ion-icon class="icon-x-publicacao" name="close"></ion-icon>
             <form action="">
-                <input type="file" id="uploadInput" style="display: none;">
+                <input type="file" d="uploadInput" style="display: none;">
                 <div class="up-video"><ion-icon onclick="openFileUploader()" class="icon-video" name="videocam"></ion-icon></div>
                 <input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>
                 <input type="text" name="NomeDoVideo" id="Nome-video" oninput="limitarPalavrasPublicar()" placeholder="Nome do Video" required>

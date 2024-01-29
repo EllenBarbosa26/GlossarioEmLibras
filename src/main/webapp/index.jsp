@@ -81,7 +81,7 @@
         <div class="conteinergoogleModerador">
             <img class="iconsair" src="scr/img/ph_x-bold.png" alt="">
             <img class="vector" src="scr/img/icon_Vector.png" alt="">
-            <form action="processar-dados" onsubmit="verificarModerador(); return false;">
+            <form action="timeline">
                 <p>Insira o seu código de moderador:</p>
                 <input type="text" name="Código" id="codigo" placeholder="Digite seu Código" required>
                 <button type="submit">Logar</button>

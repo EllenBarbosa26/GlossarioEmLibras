@@ -11,7 +11,7 @@ public class Perfil extends Usuario {
     private byte[] foto;
 
     public Perfil(String nome, String email, String senha, String biografia, byte[] foto) {
-        super(nome, email, senha);
+        super(nome, email);
         this.biografia = biografia;
         this.foto = foto;
     }

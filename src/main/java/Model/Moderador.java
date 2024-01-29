@@ -3,8 +3,8 @@ package Model;
 public class Moderador extends Usuario {
     private int codigo;
 
-    public Moderador(String nome, String email, String senha, int codigo) {
-        super(nome, email, senha);
+    public Moderador(String nome, String s, String email, String senha) {
+        super(nome, email);
         this.codigo = codigo;
     }
 

@@ -19,7 +19,7 @@ public class Controller extends HttpServlet {
             } else if ("Cadastrar".equals(acao)) {
               //  new CadastroController().executa(request, response);
             } else if ("Login".equals(acao)) {
-                new LoginController().executa(request, response);
+
             } else if ("Moderador".equals(acao)) {
                // new ModeradorController().executa(request, response);
             } else {
