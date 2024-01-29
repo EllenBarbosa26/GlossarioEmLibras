@@ -10,7 +10,6 @@ public class Usuario {
     public Usuario(String nome, String email) {
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
     }
 
     public Usuario(String nome, String email, String senha, int codigo) {
