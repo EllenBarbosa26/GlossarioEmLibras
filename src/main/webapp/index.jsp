@@ -6,16 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scr/css/indexstilos.css">
-    <link rel="stylesheet" href="scr/css/indexstilos.css">
     <script src="scr/Javc/script.js"></script>
-    <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
+    <link rel="shortcut icon" href="scr/img/image 2.png" type="image/png">
 
     <title>LibrasDev</title>
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
-    <script src="scr/Javc/jsgoogle.js"></script>
-    <script src="scr/Javc/verificacao.js"></script>
 </head>
 
 <body>
@@ -66,7 +60,7 @@
         <div class="conteinergoogleUsuario">
             <img class="iconsairusuario" src="scr/img/ph_x-bold.png" alt="">
             <img class="vector" src="scr/img/icon_Vector.png" alt="">
-            <form action="processar-dados" onsubmit="verificarUsuario(); return false;">
+            <form action="processar-dados">
                 <p>Insira o seu Email e senha:</p>
                 <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
@@ -123,8 +117,9 @@
     <h2>Desenvolvido por: Ellen Conseição, Lucas Prates e Vinício Couto</h2>
 </div>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

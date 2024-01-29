@@ -17,7 +17,5 @@ public class TimelineController extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("scr/timeline.jsp");
         rd.forward(request, response);
-
-
     }
 }
