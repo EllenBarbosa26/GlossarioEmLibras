@@ -2,6 +2,15 @@
 <%@ page import="Model.Usuario" %>
 
 <!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/scr/img/image 2.png" type="image/librasdev">
+    <link rel="stylesheet" href="/scr/moderador/moderadorcss/timelineM.css">
+    <script src="/scr/moderador/ModeradorJavs/scripttamiline.js"></script>
+    <title>LibrasDev</title>
+</head>
+
 <html lang="pt-br">
 
 <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
