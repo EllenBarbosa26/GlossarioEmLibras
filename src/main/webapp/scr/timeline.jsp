@@ -2,6 +2,7 @@
 <%@ page import="Model.Usuario" %>
 
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +19,13 @@
 
 <body>
     <aside class="sidebar">
-        <aside class="sidebar">
-                <header class="cabecalho-sidebar">
-                    <a href="perfil.html"><img class="imgusuario" src="img/Usuario-img.jpg"
-                            alt="sem foto de perfil"></a>
-                    <p><%= usuario.getNome() %></p>
-                </header>
+        <header class="cabecalho-sidebar">
+            <a href="perfil.html"><img class="imgusuario" src="img/Usuario-img.jpg"
+                    alt="sem foto de perfil"></a>
+            <p><%= usuario.getNome() %></p>
+        </header>
 
-        <a href="/scr/perfil.html">
+        <a href="perfil.jsp">
             <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
@@ -34,7 +34,7 @@
             </button>
         </a>
 
-        <a href="/scr/categoria.html">
+        <a href="categoria.jsp">
             <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
@@ -65,7 +65,7 @@
 
     <main>
         <header class="header-categoria">
-            <a href="/scr/timeline.html">
+            <a href="timeline.html">
                 <h1 class="textolibras">LibrasDev</h1>
             </a>
 
@@ -84,7 +84,7 @@
         <div class="conteiner-publicacao">
             <ion-icon class="icon-x-publicacao" name="close"></ion-icon>
             <form action="">
-                <input type="file" id="uploadInput" style="display: none;">
+                <input type="file" d="uploadInput" style="display: none;">
                 <div class="up-video"><ion-icon onclick="openFileUploader()" class="icon-video" name="videocam"></ion-icon></div>
                 <input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>
                 <input type="text" name="NomeDoVideo" id="Nome-video" oninput="limitarPalavrasPublicar()" placeholder="Nome do Video" required>
@@ -93,53 +93,60 @@
             </form>
         </div>
 
+
+        <div class="conteiner-editar-video">
+                    <ion-icon class="icon-x-editar" name="close"></ion-icon>
+                    <form action="">
+                        <video class="video-test up-video-editar" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" muted loop></video>
+                        <input type="text" name="Categoria" id="categoria-video-editar" placeholder="Categoria" required>
+                        <input type="text" name="NomeDoVideo" id="nome-video-editar" oninput="limitarPalavrasEditar()" placeholder="Novo nome do Video" required>
+                        <p class="contagem-publica" id="contagem-palavras-editar">0/4 palavras</p>
+                        <ion-icon name="trash-outline" class="icon icon-lixeira"></ion-icon>
+                        <button type="submit" class="button-editar-video">Editar</button>
+                    </form>
+                </div>F
+
         <div class="conteiner-comentario">
-            <div class="video-demostracao">
-                <ion-icon class="icon-x-comentario" name="close"></ion-icon>
-                <video class="video-test" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
-                    loop muted></video>
-                <div class="texto-video">
-                    <h1 class="novonome">Nome do video</h1>
-                    <p class="usuario">@Usuario</p>
-                </div>
-                <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
-                <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
-                <p class="numero-de-curtidas">349</p>
-            </div>
+        <div class="video-demostracao">
+                        <ion-icon class="icon-x-comentario" name="close"></ion-icon>
+                        <video class="video-test" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
+                            loop muted></video>
+                        <div class="texto-video">
+                            <h1 class="novonome">Nome do video</h1>
+                            <p class="usuario">@Usuario</p>
+                        </div>
+
+                        <!-- if -->
+                        <ion-icon name="options-outline" class="icon opcoes-especiais"></ion-icon>
+
+                        <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
+                        <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
+                        <p class="numero-de-curtidas">349</p>
+                    </div>
 
             <div class="formulario-comentario">
                 <form action="">
-                    <img class="img-usuario img-novo-comentario" src="/scr/img/Usuario-img.jpg" alt="">
+                    <img class="img-usuario img-novo-comentario" src="img/Usuario-img.jpg" alt="">
                     <textarea name="NovoComentario" id="novocomentario" cols="30" rows="10"
                         placeholder="Novo Comentario" oninput="limitarPalavras()" required></textarea>
                     <p id="contagem-palavras">0/10 palavras</p>
                     <button type="submit" class="button-eviar-novo-comentario">Enviar</button>
                 </form>
             </div>
+
             <div class="comentarios">
-                <img class="img-usuario img-comentrio" src="/scr/img/Usuario-img.jpg" alt="">
+                <img class="img-usuario img-comentrio" src="img/Usuario-img.jpg" alt="">
                 <p>Comentario publicado</p>
             </div>
         </div>
 
         <div class="conteiner-video">
 
-            <div class="videos">
 
-                <video class="video-test" src="/scr/video/Vídeo_teste.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
+<% for(int i = 0; i <20; i++) {%>
             <div class="videos">
                 <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video nomevideo">Nome do video</h1>
@@ -148,52 +155,13 @@
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
                     <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
+
+
                 </div>
             </div>
+            <%}%>
 
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
 
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-        </div>
 
     </main>
 
