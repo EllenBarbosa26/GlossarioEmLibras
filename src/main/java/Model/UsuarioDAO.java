@@ -18,7 +18,7 @@ public class UsuarioDAO {
         return DriverManager.getConnection(URL, USUARIO, SENHA);
     }
 
-    public void inserirUsuario(String username, String password, String email) {
+    public Usuario inserirUsuario(String username, String password, String email) {
         try (Connection conexao = obterConexao();
              PreparedStatement pstmt = conexao.prepareStatement(INSERIR_USUARIO)) {
             pstmt.setString(1, username);
@@ -29,11 +29,13 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public Usuario obterUsuarioPorId(int userId) {
+    public Usuario obterUsuarioPorId() {
         try (Connection conexao = obterConexao();
              PreparedStatement pstmt = conexao.prepareStatement(OBTENER_USUARIO_POR_ID)) {
+            int userId = 0;
             pstmt.setInt(1, userId);
 
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -53,4 +55,6 @@ public class UsuarioDAO {
 
         return null;
     }
+
+
 }

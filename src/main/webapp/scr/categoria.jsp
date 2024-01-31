@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/image 2.png" type="image/librasdev">
-    <link rel="stylesheet" href="css/timeline.css">
-    <script src="Javc/scripttamiline.js"></script>
-    <link rel="stylesheet" href="css/catagoriaestilos.css">
+    <link rel="stylesheet" href="scr/css/timeline.css">
+    <link rel="stylesheet" href="scr/css/catagoriaestilos.css">
+
     <title>LibrasDev</title>
 </head>
 <body>
@@ -16,23 +16,25 @@
             <p>@Usuario</p>
         </header>
 
-        <a href="perfil.html">
-            <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
-                <p>Perfil</p>
-            </div>
-        </button>
-        </a>
-        
-        <a href="categoria.html">
-            <button class="button-sidebar categorias">
-            <div>
+        <form action = "perfil">
+              <button class="button-sidebar">
+                <div>
+                    <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
+                    <p>Perfil</p>
+                </div>
+            </button>
+        </form>
+
+        <form action = "categoria">
+           <button class="button-sidebar categorias">
+              <div>
                 <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
                 <p>Categorias</p>
-            </div>
-        </button>
-        </a>
+              </div>
+           </button>
+        </form>
+
+
         
 
         <button class="button-sidebar">
@@ -56,7 +58,7 @@
 
     <main>
         <header class="header-categoria">
-            <a href="timeline.html"><h1 class="textolibras">LibrasDev</h1></a>
+            <a href="timeline.jsp"><h1 class="textolibras">LibrasDev</h1></a>
             <div class="barra-de-pesquisa">
                 <form class="form-pesquisa" action="">
                     
@@ -110,5 +112,7 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            <script src="Javc/scripttamiline.js"></script>
+
 </body>
 </html>

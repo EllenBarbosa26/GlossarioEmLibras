@@ -114,7 +114,7 @@
 
 <div class="rodape">
     <h1>LibrasDev</h1>
-    <h2>Desenvolvido por: Ellen Conseição, Lucas Prates e Vinício Couto</h2>
+    <h2>Desenvolvido por: Ellen Conceição, Lucas Prates e Vinício Couto</h2>
 </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

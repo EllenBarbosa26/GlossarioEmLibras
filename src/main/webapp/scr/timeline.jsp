@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="Model.Usuario" %>
+<%@ page import="Model.Moderador" %>
 
 <!DOCTYPE html>
 
@@ -8,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
     <link rel="stylesheet" href="scr/css/timeline.css">
-    <script src="Javc/scripttamiline.js"></script>
-    <script src="Javc/like.js"></script>
+    <script src="scr/Javc/scripttamiline.js"></script>
+    <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
 </head>
 <html lang="pt-br">
@@ -20,9 +21,10 @@
 <body>
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
-            <a href="perfil.html"><img class="imgusuario" src="img/Usuario-img.jpg"
+            <a href="perfil.jsp"><img class="imgusuario" src="img/Usuario-img.jpg"
                     alt="sem foto de perfil"></a>
-            <p><%= usuario.getNome() %></p>
+            <p><%= isModerador%></p>
+
         </header>
 
         <a href="perfil.jsp">
@@ -65,7 +67,7 @@
 
     <main>
         <header class="header-categoria">
-            <a href="timeline.html">
+            <a href="timeline.jsp">
                 <h1 class="textolibras">LibrasDev</h1>
             </a>
 
@@ -104,7 +106,7 @@
                         <ion-icon name="trash-outline" class="icon icon-lixeira"></ion-icon>
                         <button type="submit" class="button-editar-video">Editar</button>
                     </form>
-                </div>F
+        </div>
 
         <div class="conteiner-comentario">
         <div class="video-demostracao">

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/image 2.png" type="image/librasdev">
-    <link rel="stylesheet" href="css/perfilestilos.css">
-    <script src="Javc/perfil.js"></script>
-    <script src="Javc/scripttamiline.js"></script>
-    <script src="Javc/like.js"></script>
+    <link rel="stylesheet" href="scr/css/perfilestilos.css">
+    <script src="scr/Javc/perfil.js"></script>
+    <script src="scr/Javc/scripttamiline.js"></script>
+    <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
 </head>
 
@@ -16,27 +16,31 @@
     <aside class="sidebar">
 
         <header class="cabecalho-sidebar">
-            <a href="timeline.html"> <img class="imgusuario" src="img/image 2.png"
+            <a href="timeline.jsp"> <img class="imgusuario" src="scr/img/image 2.png"
                     alt="sem foto de perfil"></a>
 
             <p class="usuariosidebar">@Usuario</p>
         </header>
 
-        <button class="button-sidebar">
-            <div class="perfil">
-                <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
-                <p>Perfil</p>
-            </div>
-        </button>
+  !---link---!
 
-        <a href="categoria.html">
-            <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
-                <p>Categorias</p>
-            </div>
-        </button>
-        </a>
+          <form action = "perfil">
+                      <button class="button-sidebar">
+                        <div>
+                            <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
+                            <p>Perfil</p>
+                        </div>
+                    </button>
+                </form>
+
+         <form action = "categoria">
+                   <button class="button-sidebar categorias">
+                      <div>
+                        <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
+                        <p>Categorias</p>
+                      </div>
+                   </button>
+                </form>
 
         <button class="button-sidebar">
             <div>
@@ -145,9 +149,7 @@
         <div class="contricuicoes">
             <div>
                 <p class="suas-contribuicoes">Suas Contribuições:</p>
-                <div class="Gifs">
 
-                </div>
             </div>
         </div>
 

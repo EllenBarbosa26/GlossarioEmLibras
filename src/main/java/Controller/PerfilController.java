@@ -1,5 +1,6 @@
 package Controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/categoria")
+@WebServlet("/perfil")
 
-public class CategoriaController extends HttpServlet {
+public class PerfilController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        RequestDispatcher rd = request.getRequestDispatcher("scr/categoria.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("scr/perfil.jsp");
         rd.forward(request, response);
 
     }

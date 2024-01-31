@@ -3,7 +3,7 @@ package Model;
 public class Usuario {
 
     private String nome;
-    public  String email;
+    private String email;
     private String senha;
     private int codigo;
 
@@ -48,10 +48,21 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
     public int getCodigo() {
         return codigo;
     }
+
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    // Corrigindo o método getUsername
+    public String getUsername() {
+        return nome; // ou outra lógica para obter o nome como username
+    }
+
+    public String getPassword() {
+        return senha;
     }
 }
