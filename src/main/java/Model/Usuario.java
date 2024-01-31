@@ -12,10 +12,10 @@ public class Usuario {
         this.email = email;
     }
 
-    public Usuario(String nome, String email, String senha) {
+    public Usuario(String nome, String senha, String email) {
         this.nome = nome;
-        this.email = email;
         this.senha = senha;
+        this.email = email;
     }
 
     public Usuario(String nome, String email, String senha, int codigo) {
@@ -57,9 +57,9 @@ public class Usuario {
         this.codigo = codigo;
     }
 
-    // Corrigindo o método getUsername
+
     public String getUsername() {
-        return nome; // ou outra lógica para obter o nome como username
+        return nome;
     }
 
     public String getPassword() {

@@ -25,11 +25,11 @@ public class CadastroController extends HttpServlet {
 
         // Verifica se o usuário já existe no banco de dados
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuarioExistente = usuarioDAO.inserirUsuario(nome, email, senha);
+        Usuario usuarioExistente = usuarioDAO.inserirUsuario(nome, senha, email);
 
         if (usuarioExistente == null) {
             // Se o usuário não existe, cadastra no banco de dados
-            Usuario novoUsuario = new Usuario(nome, email, senha);
+            Usuario novoUsuario = new Usuario(nome, senha, email);
             usuarioDAO.inserirUsuario(novoUsuario.getUsername(), novoUsuario.getPassword(), novoUsuario.getEmail());
 
             // Cria a sessão para o novo usuário

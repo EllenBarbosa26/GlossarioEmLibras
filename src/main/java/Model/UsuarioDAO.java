@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsuarioDAO {
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/?user=root";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/librasdev?user=root";
     private static final String USUARIO = "root";
     private static final String SENHA = "@102938luk";
 
@@ -55,6 +55,4 @@ public class UsuarioDAO {
 
         return null;
     }
-
-
 }
