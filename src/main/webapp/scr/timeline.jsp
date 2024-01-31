@@ -15,10 +15,17 @@
 </head>
 <html lang="pt-br">
 
-<% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
+<%
+
+ Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+%>
+<% Boolean isModerador = (Boolean) session.getAttribute("isModerador");%>
+
 
 
 <body>
+
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
             <a href="perfil.jsp"><img class="imgusuario" src="img/Usuario-img.jpg"
@@ -27,23 +34,25 @@
 
         </header>
 
-        <a href="perfil.jsp">
+        <form action="perfil">
             <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
                     <p>Perfil</p>
                 </div>
             </button>
-        </a>
+        </form>
 
-        <a href="categoria.jsp">
+
+        <form action="categoria">
             <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
                     <p>Categorias</p>
                 </div>
             </button>
-        </a>
+        </form>
+
 
 
         <button class="button-sidebar">
@@ -118,8 +127,14 @@
                             <p class="usuario">@Usuario</p>
                         </div>
 
-                        <!-- if -->
-                        <ion-icon name="options-outline" class="icon opcoes-especiais"></ion-icon>
+                      <%
+                          if (isModerador != null && isModerador) {
+                              // Código específico para moderadores
+                      %>
+                              <ion-icon name="options-outline" class="icon opcoes-especiais"></ion-icon>
+                      <%
+                          }
+                      %>
 
                         <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
                         <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
