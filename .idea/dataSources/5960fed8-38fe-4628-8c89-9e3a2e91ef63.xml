@@ -998,7 +998,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="librasdev">
-      <LastIntrospectionLocalTimestamp>2024-02-02.19:30:14</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-02-02.19:39:06</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="mysql">
@@ -1026,7 +1026,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="296" parent="1" name="user_cadastro">
+    <user id="296" parent="1" name="user_root">
+      <Host>127.0.0.1</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
     <table id="297" parent="289" name="admin">
