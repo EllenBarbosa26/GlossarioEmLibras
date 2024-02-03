@@ -27,16 +27,17 @@
 <div class="conteiner1">.</div>
 
     <%
-        String msgDeErro = (String) session.getAttribute("msgDeErro");
-        if(msgDeErro != null) {
-            %>
-            <div>
-                <%=msgDeErro%>
-            </div>
-            <%
-            session.removeAttribute("msgDeErro");
-        }
-    %>
+            String msgDeErro = (String) session.getAttribute("msgDeErro");
+            if(msgDeErro != null) {
+        %>
+            <script>
+                // Exibir a mensagem de erro como um alerta JavaScript
+                alert("<%=msgDeErro%>");
+            </script>
+        <%
+                session.removeAttribute("msgDeErro");
+            }
+        %>
 
 <div class="test">
     <div class="paralogar">

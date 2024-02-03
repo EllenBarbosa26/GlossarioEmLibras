@@ -16,13 +16,11 @@
 <html lang="pt-br">
 
 <%
-     Usuario usuario = (Usuario) session.getAttribute("usuario");
-     Boolean isModerador = (Boolean) session.getAttribute("isModerador");
 
-     if (usuario == null && isModerador == null){
-         response.sendRedirect("../index.jsp");
-     }
+ Usuario usuario = (Usuario) session.getAttribute("usuario");
+
 %>
+<% Boolean isModerador = (Boolean) session.getAttribute("isModerador");%>
 
 
 
