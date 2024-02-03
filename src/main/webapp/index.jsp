@@ -26,6 +26,18 @@
 
 <div class="conteiner1">.</div>
 
+    <%
+        String msgDeErro = (String) session.getAttribute("msgDeErro");
+        if(msgDeErro != null) {
+            %>
+            <div>
+                <%=msgDeErro%>
+            </div>
+            <%
+            session.removeAttribute("msgDeErro");
+        }
+    %>
+
 <div class="test">
     <div class="paralogar">
         <div class="conteinertest">
@@ -75,9 +87,9 @@
         <div class="conteinergoogleModerador">
             <img class="iconsair" src="scr/img/ph_x-bold.png" alt="">
             <img class="vector" src="scr/img/icon_Vector.png" alt="">
-            <form action="timeline">
+            <form action="processar-dados">
                 <p>Insira o seu código de moderador:</p>
-                <input type="text" name="Código" id="codigo" placeholder="Digite seu Código" required>
+                <input type="text" name="codigo" id="codigo" placeholder="Digite seu Código" required>
                 <button type="submit">Logar</button>
             </form>
         </div>

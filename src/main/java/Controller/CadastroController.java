@@ -3,6 +3,7 @@ package Controller;
 import Model.UsuarioDAO;
 import Model.Usuario;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,9 +26,9 @@ public class CadastroController extends HttpServlet {
 
         // Verifica se o usuário já existe no banco de dados
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuarioExistente = usuarioDAO.inserirUsuario(nome, senha, email);
+        Usuario usuarioExistente = new Usuario(nome, senha, email);
 
-        if (usuarioExistente == null) {
+        if (usuarioDAO.obterUsuarioUserEEmail(usuarioExistente) == null) {
             // Se o usuário não existe, cadastra no banco de dados
             Usuario novoUsuario = new Usuario(nome, senha, email);
             usuarioDAO.inserirUsuario(novoUsuario.getUsername(), novoUsuario.getPassword(), novoUsuario.getEmail());
@@ -39,8 +40,11 @@ public class CadastroController extends HttpServlet {
             response.sendRedirect("timeline");
         } else {
             // Se o usuário já existe, redireciona para uma página informando sobre o cadastro duplicado
-            response.sendRedirect("cadastroDuplicado.jsp"); // Substitua pelo nome da sua página de aviso de cadastro duplicado
-       //mexer
+            HttpSession session = request.getSession(true);
+            session.setAttribute("msgDeErro", "Já existe um usuário cadastrado com essas informações!");
+
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
         }
     }
 }

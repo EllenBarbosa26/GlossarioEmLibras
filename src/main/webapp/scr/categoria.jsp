@@ -1,5 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="Model.Usuario" %>
+<%@ page import="Model.Moderador" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    Boolean isModerador = (Boolean) session.getAttribute("isModerador");
+
+    if (usuario == null && isModerador == null){
+        response.sendRedirect("../index.jsp");
+    }
+%>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
