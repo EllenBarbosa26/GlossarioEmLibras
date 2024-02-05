@@ -73,6 +73,9 @@
     <main>
         <header class="header-categoria">
             <a href="timeline.jsp"><h1 class="textolibras">LibrasDev</h1></a>
+
+            <ion-icon class="icon-publicar" name="duplicate-outline"></ion-icon>
+
             <div class="barra-de-pesquisa">
                 <form class="form-pesquisa" action="">
                     
