@@ -97,6 +97,14 @@
                     </form>
                 </div>
 
+
+        <div class="conteiner-Apagar-Categoria">
+                        <p class="msg-de-Aterta">Você realmente dejesa apager esta categoria(nomedacategoria)?</p>
+                        <button type="submit" class="button-Sim">Sim</button>
+                        <button type="submit" class="button-Nao">Não</button>
+
+                </div>
+
         <div class="conteiner-categorias">
 
             <div class="catagoria">
@@ -106,6 +114,7 @@
                 </div>
                 <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
                 <p>Software</p>
+                 <ion-icon class="lixeira" name="trash-outline"></ion-icon>
             </div>
 
             <div class="catagoria">
