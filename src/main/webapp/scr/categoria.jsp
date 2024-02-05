@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="img/image 2.png" type="image/librasdev">
     <link rel="stylesheet" href="scr/css/timeline.css">
     <link rel="stylesheet" href="scr/css/catagoriaestilos.css">
-
+    <script src="scr/Javc/categoria.js"></script>
     <title>LibrasDev</title>
 </head>
 <body>
