@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
             iconpublicar.style.color = 'white';
         }
     }
+
+
 });
 
 
@@ -166,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
             conteinercomentario[index].style.display = 'none';
         });
     });
+
+
 });
 
 
@@ -192,5 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
 
 

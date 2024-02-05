@@ -8,8 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
+    <link rel="stylesheet" href="scr/css/catagoriaestilos.css">
     <link rel="stylesheet" href="scr/css/timeline.css">
     <script src="scr/Javc/scripttamiline.js"></script>
+    <script src="scr/Javc/categoria.js"></script>
     <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
 </head>
@@ -104,6 +106,13 @@
             </form>
         </div>
 
+        <div class="conteiner-Apagar-Categoria">
+                    <p class="msg-de-Aterta">Você realmente dejesa apager esta categoria(nomedacategoria)?</p>
+                    <button type="submit" class="button-Sim">Sim</button>
+                    <button type="submit" class="button-Nao">Não</button>
+
+            </div>
+
 
         <div class="conteiner-editar-video">
                     <ion-icon class="icon-x-editar" name="close"></ion-icon>
@@ -112,7 +121,7 @@
                         <input type="text" name="Categoria" id="categoria-video-editar" placeholder="Categoria" required>
                         <input type="text" name="NomeDoVideo" id="nome-video-editar" oninput="limitarPalavrasEditar()" placeholder="Novo nome do Video" required>
                         <p class="contagem-publica" id="contagem-palavras-editar">0/4 palavras</p>
-                        <ion-icon name="trash-outline" class="icon icon-lixeira"></ion-icon>
+                        <ion-icon name="trash-outline" class="icon icon-lixeira lixeira "></ion-icon>
                         <button type="submit" class="button-editar-video">Editar</button>
                     </form>
         </div>
