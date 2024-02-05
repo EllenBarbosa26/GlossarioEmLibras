@@ -27,7 +27,7 @@
 <body>
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
-            <a href="perfil.html"><img class="imgusuario" src="img/Usuario-img.jpg" alt="sem foto de perfil"></a>
+            <a href="perfil.html"><img class="imgusuario" src="scr/img/Usuario-img.jpg" alt="sem foto de perfil"></a>
             <p>@Usuario</p>
         </header>
 
@@ -113,7 +113,7 @@
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
-                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
+                <img class="imagcategoria" src="scr/img/desktop-outline.svg" alt="">
                 <p>Software</p>
                  <ion-icon class="lixeira" name="trash-outline"></ion-icon>
             </div>
