@@ -34,4 +34,21 @@ document.addEventListener('DOMContentLoaded', function () {
             conteinerpublicacao[index].style.display = 'block';
         });
     });
+
+        var sairApagar = document.querySelectorAll('.button-Nao');
+        var conteinerApagar = document.querySelectorAll('.conteiner-Apagar-Categoria');
+        var lixeira = document.querySelectorAll('.lixeira');
+
+        sairApagar.forEach(function (sair, index) {
+            sair.addEventListener('click', function () {
+                conteinerApagar[index].style.display = 'none';
+            });
+        });
+
+        lixeira.forEach(function (icon, index) {
+            icon.addEventListener('click', function () {
+                conteinerApagar[index].style.display = 'block';
+            });
+        });
+
 });
