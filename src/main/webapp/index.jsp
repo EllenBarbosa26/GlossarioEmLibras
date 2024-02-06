@@ -30,10 +30,10 @@
             String msgDeErro = (String) session.getAttribute("msgDeErro");
             if(msgDeErro != null) {
         %>
-            <script>
-                // Exibir a mensagem de erro como um alerta JavaScript
-                alert("<%=msgDeErro%>");
-            </script>
+                <script>
+                    // Exibir a mensagem de erro como um alerta JavaScript
+                    alert("<%=msgDeErro%>");
+                </script>
         <%
                 session.removeAttribute("msgDeErro");
             }
