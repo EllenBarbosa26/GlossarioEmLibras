@@ -8,7 +8,7 @@
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     Boolean isModerador = (Boolean) session.getAttribute("isModerador");
-
+        List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
     if (usuario == null && isModerador == null){
         response.sendRedirect("../index.jsp");
     }
@@ -107,44 +107,36 @@
                 </div>
 
         <div class="conteiner-categorias">
-
+            <%
+                        if (categorias != null || catagorias > 0 ){
+                        for (Categoria categoria : categorias) {
+            %>
             <div class="catagoria">
                 <div class="quant-videos">
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
                 <img class="imagcategoria" src="scr/img/desktop-outline.svg" alt="">
-                <p>Software</p>
+                <p><%= categoria.getNome() %></p>
                  <ion-icon class="lixeira" name="trash-outline"></ion-icon>
             </div>
-
-            <div class="catagoria">
-                <div class="quant-videos">
-                    <p class="quantidade">9</p>
-                    <p class="videos">Videos</p>
-                </div>
-                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
-                <p>Software</p>
-            </div>
-
-            <div class="catagoria">
-                <div class="quant-videos">
-                    <p class="quantidade">9</p>
-                    <p class="videos">Videos</p>
-                </div>
-                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
-                <p>Software</p>
-            </div>
-
-            <div class="catagoria">
-                <div class="quant-videos">
-                    <p class="quantidade">9</p>
-                    <p class="videos">Videos</p>
-                </div>
-                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
-                <p>Software</p>
-            </div>
-
+            <%}
+                }
+                else{
+                    <form action="adicionar_categoria">
+                                            <div class="catagoria">
+                                                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
+                                                <button class="button_add">Adicionar</button>
+                                            </div>
+                    </form>
+                }
+            %>
+             <form action="adicionar_categoria">
+                        <div class="catagoria">
+                            <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
+                            <button class="button_add">Adicionar</button>
+                        </div>
+            </form>
         </div>
     </main>
 

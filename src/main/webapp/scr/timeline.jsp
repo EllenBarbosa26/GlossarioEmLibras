@@ -56,13 +56,14 @@
         </form>
 
 
-
+        <form action="categoria">
         <button class="button-sidebar">
             <div>
                 <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
                 <p>Ajuda</p>
             </div>
         </button>
+        </form>
 
         <button class="button-sidebar">
             <div>

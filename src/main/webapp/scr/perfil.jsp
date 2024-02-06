@@ -35,7 +35,6 @@
             <p class="usuariosidebar">@Usuario</p>
         </header>
 
-  !---link---!
 
           <form action = "perfil">
                       <button class="button-sidebar">
