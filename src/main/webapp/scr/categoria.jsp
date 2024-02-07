@@ -106,7 +106,7 @@
                     </form>
                 </div>
 
-
+/
         <div class="conteiner-Apagar-Categoria">
                         <p class="msg-de-Aterta">Você realmente dejesa apager esta categoria(nomedacategoria)?</p>
                         <button type="submit" class="button-Sim">Sim</button>
