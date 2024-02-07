@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.Moderador" %>
+<%@ page import="java.util.List" %>
+<%@ page import="Model.Categoria" %>
+<%@ page import="org.slf4j.Logger" %>
+<%@ page import="org.slf4j.LoggerFactory" %>
+<%@ page import="Controller.CategoriaController" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,7 +32,9 @@
 <body>
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
-            <a href="perfil.html"><img class="imgusuario" src="scr/img/Usuario-img.jpg" alt="sem foto de perfil"></a>
+            <form action = "perfil">
+            <img class="imgusuario" src="scr/img/Usuario-img.jpg" alt="sem foto de perfil"/>
+            </form>
             <p>@Usuario</p>
         </header>
 
@@ -50,14 +57,14 @@
         </form>
 
 
-        
-
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
-                <p>Ajuda</p>
-            </div>
-        </button>
+         <form action="ajuda">
+                <button class="button-sidebar">
+                    <div>
+                        <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
+                        <p>Ajuda</p>
+                    </div>
+                </button>
+                </form>
 
         <button class="button-sidebar">
             <div>
@@ -108,7 +115,7 @@
 
         <div class="conteiner-categorias">
             <%
-                        if (categorias != null || catagorias > 0 ){
+                        if (categorias != null && !categorias.isEmpty() ){
                         for (Categoria categoria : categorias) {
             %>
             <div class="catagoria">
@@ -122,14 +129,7 @@
             </div>
             <%}
                 }
-                else{
-                    <form action="adicionar_categoria">
-                                            <div class="catagoria">
-                                                <img class="imagcategoria" src="img/desktop-outline.svg" alt="">
-                                                <button class="button_add">Adicionar</button>
-                                            </div>
-                    </form>
-                }
+
             %>
              <form action="adicionar_categoria">
                         <div class="catagoria">

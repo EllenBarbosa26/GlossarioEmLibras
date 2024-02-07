@@ -58,8 +58,6 @@ public class CategoriaController extends HttpServlet {
         CategoriaDAO categoriaDAO = new CategoriaDAO(); // Pode ser necessário ajustar isso dependendo de como você está gerenciando suas conexões.
         List<Categoria> categorias = categoriaDAO.getAllCategorias();
 
-        logger.debug("Categoria 1: " + categorias.get(0).getNome());
-
 
         request.setAttribute("categorias", categorias);
 
