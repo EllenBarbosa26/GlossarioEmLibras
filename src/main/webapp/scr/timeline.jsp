@@ -30,9 +30,11 @@
 
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
-            <a href="perfil.jsp"><img class="imgusuario" src="img/Usuario-img.jpg"
+            <form action="perfil">
+            <a><img class="imgusuario" src="img/Usuario-img.jpg"
                     alt="sem foto de perfil"></a>
-            <p><%= isModerador%></p>
+            </form>
+            <p><%= usuario.getNome()%></p>
 
         </header>
 
@@ -56,7 +58,7 @@
         </form>
 
 
-        <form action="categoria">
+        <form action="ajuda">
         <button class="button-sidebar">
             <div>
                 <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
