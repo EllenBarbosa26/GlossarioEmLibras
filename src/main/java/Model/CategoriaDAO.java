@@ -77,4 +77,23 @@ public class CategoriaDAO {
         }
         return categorias;
     }
+    public List<Categoria> pesquisarCategorias(String termoPesquisa) throws SQLException {
+        List<Categoria> categoriasEncontradas = new ArrayList<>();
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " LIKE ?";
+        try (Connection conexao = obterConexao();
+             PreparedStatement psmt = conexao.prepareStatement(sql)) {
+            psmt.setString(1, "%" + termoPesquisa + "%");
+            try (ResultSet resultSet = psmt.executeQuery()) {
+                while (resultSet.next()) {
+                    Categoria categoria = new Categoria();
+                    categoria.setId(resultSet.getInt(COLUMN_ID));
+                    categoria.setNome(resultSet.getString(COLUMN_NAME));
+                    String descricao = resultSet.getString(COLUMN_DESCRIPTION);
+                    categoria.setDescricao(descricao != null ? descricao : "");
+                    categoriasEncontradas.add(categoria);
+                }
+            }
+        }
+        return categoriasEncontradas;
+}
 }
