@@ -63,12 +63,14 @@
                 </button>
                 </form>
 
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
-                <p>Sugestões </p>
-            </div>
-        </button>
+         <form action = "sugestao">
+                       <button class="button-sidebar">
+                           <div>
+                               <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
+                               <p>Sugestões</p>
+                           </div>
+                       </button>
+                       </form>
 
         <ion-icon class="lua iconformat" name="moon-outline"></ion-icon>
         <ion-icon class="sol iconformat" name="sunny-outline"></ion-icon>

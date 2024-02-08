@@ -30,6 +30,8 @@ public class LoginController extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("isModerador", true);
                 // Se for igual, encaminhe para a controller Timeline
+                // pegar email e senha do moderador
+
                 response.sendRedirect(request.getContextPath() + "/timeline");
 
             } else{

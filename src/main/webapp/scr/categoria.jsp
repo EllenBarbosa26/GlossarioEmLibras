@@ -13,7 +13,9 @@
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     Boolean isModerador = (Boolean) session.getAttribute("isModerador");
-        List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+    List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+
+
     if (usuario == null && isModerador == null){
         response.sendRedirect("../index.jsp");
     }
@@ -66,12 +68,14 @@
                 </button>
                 </form>
 
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
-                <p>Sugestões </p>
-            </div>
-        </button>
+         <form action = "sugestao">
+                       <button class="button-sidebar">
+                           <div>
+                               <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
+                               <p>Sugestões</p>
+                           </div>
+                       </button>
+                       </form>
 
         <ion-icon class="lua iconformat" name="moon-outline"></ion-icon>
         <ion-icon class="sol iconformat" name="sunny-outline"></ion-icon>
@@ -86,21 +90,20 @@
 
             <div class="barra-de-pesquisa">
                 <form class="form-pesquisa" action="">
-                    
+
                     <input type="text" name="Pesquisa" id="pesquisa" placeholder="Pesquisar" required>
                     <ion-icon class="ico-lupa" type="submit" name="search-outline"></ion-icon>
                 </form>
-                
+
             </div>
         </header>
 
-        <div class="conteiner-Nova-Categoria">
+       <div class="conteiner-Nova-Categoria">
                     <ion-icon class="icon-x-categoria" name="close"></ion-icon>
-                    <form action="adicionar_categoria">
+                    <form action="processar_categoria" method="post">
                         <input type="file" id="uploadInput" style="display: none;">
                         <div class="up-img"><ion-icon class="icon-camera" onclick="openFileUploaderCategoria()" name="camera-outline"></ion-icon></div>
-                        <input type="text" name="Categoria" id="categoria-video" placeholder="Descrição" required>
-                        <input type="text" name="NomeDaCategria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Cadegoria" required>
+                        <input type="text" name="Nome-categoria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Cadegoria" required>
                         <p class="contagem-Letras-Categoria" id="contagem-palavras-Categoria">0/4 palavras</p>
                         <button type="submit" class="button-Nova-categoria">Adicionar</button>
                     </form>
@@ -114,7 +117,6 @@
                         if (categorias != null && !categorias.isEmpty() ){
                         for (Categoria categoria : categorias) {
             %>
-
             <div class="catagoria">
                 <div class="quant-videos">
                     <p class="quantidade">9</p>
@@ -124,6 +126,14 @@
                 <p><%= categoria.getNome() %></p>
                  <ion-icon class="lixeira" name="trash-outline"></ion-icon>
             </div>
+                    <div class="conteiner-Apagar-Categoria">
+                                    <p class="msg-de-Aterta">Você realmente dejesa apager esta categoria ?</p>
+                                    <form action="apagar_categoria" method="post">
+                                        <input type="hidden" name="id" value="<%= categoria.getId() %>">
+                                        <button type="submit" class="button-Sim">Sim</button>
+                                    </form>
+                    <button type="submit" class="button-Nao">Não</button>
+                    </div>
             <%}
                 }
 

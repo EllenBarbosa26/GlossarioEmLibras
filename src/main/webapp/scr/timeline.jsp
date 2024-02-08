@@ -67,12 +67,14 @@
         </button>
         </form>
 
+<form action = "sugestao">
         <button class="button-sidebar">
             <div>
                 <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
-                <p>Sugestões </p>
+                <p>Sugestões</p>
             </div>
         </button>
+        </form>
 
         <ion-icon class="lua iconformat" name="moon-outline"></ion-icon>
         <ion-icon class="sol iconformat" name="sunny-outline"></ion-icon>
@@ -109,12 +111,7 @@
             </form>
         </div>
 
-        <div class="conteiner-Apagar-Categoria">
-                    <p class="msg-de-Aterta">Você realmente dejesa apager esta categoria(nomedacategoria)?</p>
-                    <button type="submit" class="button-Sim">Sim</button>
-                    <button type="submit" class="button-Nao">Não</button>
 
-            </div>
 
 
         <div class="conteiner-editar-video">

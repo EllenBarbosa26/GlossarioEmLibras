@@ -82,7 +82,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <main>
-                    <h1 class="usuario">ajuda</h1>
+                    <h1 class="usuario">Sugestao</h1>
         </header>
 
         </div>
