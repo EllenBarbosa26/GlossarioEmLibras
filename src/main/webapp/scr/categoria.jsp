@@ -114,6 +114,7 @@
                         if (categorias != null && !categorias.isEmpty() ){
                         for (Categoria categoria : categorias) {
             %>
+
             <div class="catagoria">
                 <div class="quant-videos">
                     <p class="quantidade">9</p>
