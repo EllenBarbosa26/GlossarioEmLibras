@@ -18,8 +18,7 @@ import java.util.List;
 import Model.Categoria;
 
 
-@WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria"})
-
+@WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria", "/apagar_categoria"})
 public class CategoriaController extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(CategoriaController.class);
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,5 +88,17 @@ public class CategoriaController extends HttpServlet {
 
         response.sendRedirect("/GlossarioEmLibra/categoria");
 
+    }
+
+    protected void apagar_categoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int categoriaId = Integer.parseInt(request.getParameter("admin_id"));
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        try {
+            categoriaDAO.delete(categoriaId);
+            System.out.println("Categoria deletada com sucesso.");
+        } catch (SQLException e) {
+            System.err.println("Erro ao deletar categoria: " + e.getMessage());
+        }
+        response.sendRedirect("/GlossarioEmLibra/categoria"); // Redirecionar após excluir
     }
 }
