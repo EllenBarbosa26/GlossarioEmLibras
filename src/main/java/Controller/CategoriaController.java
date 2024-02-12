@@ -2,16 +2,22 @@ package Controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.Part;
+import java.io.*;
 
 import Model.CategoriaDAO;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.PrintWriter;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -19,6 +25,7 @@ import Model.Categoria;
 
 
 @WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria", "/apagar_categoria"})
+@MultipartConfig
 public class CategoriaController extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(CategoriaController.class);
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +55,31 @@ public class CategoriaController extends HttpServlet {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+        }else if ("/apagar_categoria".equals(action)) {
+
+            apagar_categoria(request, response);
+
+        }
+    }
+
+    private void apagar_categoria(HttpServletRequest request, HttpServletResponse response) {
+        String categoriaId = request.getParameter("id"); // You need to pass the category ID from your JSP
+
+        logger.debug("ID da categoria :" , categoriaId);
+
+        if (categoriaId != null) {
+            CategoriaDAO categoriaDAO = new CategoriaDAO();
+            try {
+                categoriaDAO.delete(Integer.parseInt(categoriaId));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        try {
+            response.sendRedirect("/GlossarioEmLibra/categoria");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -74,31 +106,26 @@ public class CategoriaController extends HttpServlet {
     }
 
     private void process_categoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        String nome = request.getParameter("Nome-categoria");
+        String descricao = request.getParameter("categoria-video");
 
-        String nome = request.getParameter("nome");
-        String descricao = request.getParameter("descricao");
+        Part imagemPart = request.getPart("imagem");
+        String imagemNome = Paths.get(imagemPart.getSubmittedFileName()).getFileName().toString();
+
+        String caminhoImagem = "src/main/webapp/scr/img-categoria/" + imagemNome;
+
+        try (InputStream input = imagemPart.getInputStream();
+             OutputStream output = Files.newOutputStream(new File(caminhoImagem).toPath())) {
+            IOUtils.copy(input, output);
+        }
+
+        String caminhoRelativo = "scr/img-categoria/" + imagemNome;
 
         CategoriaDAO categoriaDAO = new CategoriaDAO();
-        Categoria categoria = new Categoria(nome, descricao);
+        Categoria categoria = new Categoria(nome, descricao, caminhoRelativo);
         categoriaDAO.insert(categoria);
-
-        // Adicione lógica para processar os dados, por exemplo, salvar no banco de dados
-
-        logger.debug("nome " + nome + "Descrição" + descricao);
 
         response.sendRedirect("/GlossarioEmLibra/categoria");
 
-    }
-
-    protected void apagar_categoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-        int categoriaId = Integer.parseInt(request.getParameter("admin_id"));
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        try {
-            categoriaDAO.delete(categoriaId);
-            System.out.println("Categoria deletada com sucesso.");
-        } catch (SQLException e) {
-            System.err.println("Erro ao deletar categoria: " + e.getMessage());
-        }
-        response.sendRedirect("/GlossarioEmLibra/categoria"); // Redirecionar após excluir
     }
 }

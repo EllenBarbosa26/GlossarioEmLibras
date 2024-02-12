@@ -100,10 +100,11 @@
 
        <div class="conteiner-Nova-Categoria">
                     <ion-icon class="icon-x-categoria" name="close"></ion-icon>
-                    <form action="processar_categoria" method="post">
-                        <input type="file" id="uploadInput" style="display: none;">
+                    <form action="processar_categoria" method="post" enctype="multipart/form-data">
+                        <input type="file" name="imagem" id="uploadInput" style="display: none;">
                         <div class="up-img"><ion-icon class="icon-camera" onclick="openFileUploaderCategoria()" name="camera-outline"></ion-icon></div>
                         <input type="text" name="Nome-categoria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Cadegoria" required>
+                        <input type="text" name="categoria-video" id="categoria-video" placeholder="Descrição" required>
                         <p class="contagem-Letras-Categoria" id="contagem-palavras-Categoria">0/4 palavras</p>
                         <button type="submit" class="button-Nova-categoria">Adicionar</button>
                     </form>
@@ -122,8 +123,9 @@
                     <p class="quantidade">9</p>
                     <p class="videos">Videos</p>
                 </div>
-                <img class="imagcategoria" src="scr/img/desktop-outline.svg" alt="">
+                <img class="imagcategoria" src="<%= categoria.getImage()%>" alt="imagem da categoria">
                 <p><%= categoria.getNome() %></p>
+
                  <ion-icon class="lixeira" name="trash-outline"></ion-icon>
             </div>
                     <div class="conteiner-Apagar-Categoria">
