@@ -28,7 +28,7 @@ public class CadastroController extends HttpServlet {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioExistente = new Usuario(nome, senha, email);
 
-        if (usuarioDAO.obterUsuarioUserEEmail(usuarioExistente) == null) {
+        if (usuarioDAO.obterUsuarioPorNomeOuEmail(usuarioExistente) == null) {
             // Se o usuário não existe, cadastra no banco de dados
             Usuario novoUsuario = new Usuario(nome, senha, email);
             usuarioDAO.inserirUsuario(novoUsuario.getUsername(), novoUsuario.getPassword(), novoUsuario.getEmail());
