@@ -13,6 +13,7 @@ public class UsuarioDAO {
 
     private static final String INSERIR_USUARIO = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
     private static final String OBTENER_USUARIO_POR_ID = "SELECT * FROM user WHERE user_id = ?";
+    private static final String OBTER_USUARIO_POR_NOME_OU_EMAIL = "SELECT * FROM user WHERE username = ? OR email = ?";
     private static final String OBTER_USUARIO_POR_NOME_EMAIL = "SELECT * FROM user WHERE username = ? AND email = ?";
     private static final String OBTER_USUARIO_POR_EMAIL_SENHA = "SELECT * FROM user WHERE email = ? AND password = ?";
 
@@ -22,7 +23,7 @@ public class UsuarioDAO {
 
     public Usuario inserirUsuario(String username, String password, String email) {
         try (Connection conexao = obterConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(INSERIR_USUARIO)) {
+             PreparedStatement pstmt = conexao.prepareStatement(INSERIR_USUARIO)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
             pstmt.setString(3, email);
@@ -36,7 +37,7 @@ public class UsuarioDAO {
 
     public Usuario obterUsuarioPorId() {
         try (Connection conexao = obterConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(OBTENER_USUARIO_POR_ID)) {
+             PreparedStatement pstmt = conexao.prepareStatement(OBTENER_USUARIO_POR_ID)) {
             int userId = 0;
             pstmt.setInt(1, userId);
 
@@ -58,9 +59,34 @@ public class UsuarioDAO {
         return null;
     }
 
+    public Usuario obterUsuarioPorNomeOuEmail(Usuario usuario) {
+        try (Connection conexao = obterConexao();
+             PreparedStatement pstmt = conexao.prepareStatement(OBTER_USUARIO_POR_NOME_OU_EMAIL)) {
+            pstmt.setString(1, usuario.getUsername());
+            pstmt.setString(2, usuario.getEmail());
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Usuario usuarioBD = new Usuario(
+                            rs.getString("username"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getInt("user_id")
+                    );
+                    return usuarioBD;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
     public Usuario obterUsuarioUserEEmail(Usuario usuario) {
         try (Connection conexao = obterConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(OBTER_USUARIO_POR_NOME_EMAIL)) {
+             PreparedStatement pstmt = conexao.prepareStatement(OBTER_USUARIO_POR_NOME_EMAIL)) {
             pstmt.setString(1, usuario.getUsername());
             pstmt.setString(2, usuario.getEmail());
 
@@ -84,7 +110,7 @@ public class UsuarioDAO {
 
     public Usuario obterUsuarioEmailESenha(Usuario usuario) {
         try (Connection conexao = obterConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(OBTER_USUARIO_POR_EMAIL_SENHA)) {
+             PreparedStatement pstmt = conexao.prepareStatement(OBTER_USUARIO_POR_EMAIL_SENHA)) {
             pstmt.setString(1, usuario.getEmail());
             pstmt.setString(2, usuario.getSenha());
 
