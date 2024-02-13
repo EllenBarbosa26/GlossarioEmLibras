@@ -31,8 +31,7 @@
         <header class="cabecalho-sidebar">
             <a href="timeline.jsp"> <img class="imgusuario" src="scr/img/image 2.png"
                     alt="sem foto de perfil"></a>
-
-            <p class="usuariosidebar">@Usuario</p>
+            <p><%= usuario.getNome()%></p>
         </header>
 
 
@@ -85,7 +84,7 @@
             <div class="bio">
                 <img class="imag-perfil" src="img/Usuario-img.jpg" alt="">
                 <div class="texto-bio">
-                    <h1 class="usuario">@Usuario</h1>
+                    <h1 class="usuario">@<%= usuario.getNome()%></h1>
                     <button class="editar-perfil">Editar Perfil</button>
 
                 </div>
