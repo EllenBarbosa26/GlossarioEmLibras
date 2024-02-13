@@ -35,9 +35,9 @@
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
             <form action = "perfil">
-            <img class="imgusuario" src="scr/img/Usuario-img.jpg" alt="sem foto de perfil"/>
+                <img class="imgusuario" src="scr/img/image 2.png" alt="sem foto de perfil">
             </form>
-            <p>@Usuario</p>
+            <p><%= usuario.getNome()%></p>
         </header>
 
         <form action = "perfil">

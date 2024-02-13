@@ -32,7 +32,7 @@
             <a href="timeline.jsp"> <img class="imgusuario" src="scr/img/image 2.png"
                     alt="sem foto de perfil"></a>
 
-            <p class="usuariosidebar">@Usuario</p>
+            <p class="usuariosidebar"><%= usuario.getNome()%></p>
         </header>
 
 
