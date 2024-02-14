@@ -133,7 +133,7 @@
                             loop muted></video>
                         <div class="texto-video">
                             <h1 class="novonome">Nome do video</h1>
-                            <p class="usuario">@Usuario</p>
+                            <p class="usuario"><%= usuario.getNome()%></p>
                         </div>
 
                       <%
@@ -154,7 +154,7 @@
                 <form action="">
                     <img class="img-usuario img-novo-comentario" src="img/Usuario-img.jpg" alt="">
                     <textarea name="NovoComentario" id="novocomentario" cols="30" rows="10"
-                        placeholder="Novo Comentario" oninput="limitarPalavras()" required></textarea>
+                        placeholder="Novo Comentário" oninput="limitarPalavras()" required></textarea>
                     <p id="contagem-palavras">0/10 palavras</p>
                     <button type="submit" class="button-eviar-novo-comentario">Enviar</button>
                 </form>
