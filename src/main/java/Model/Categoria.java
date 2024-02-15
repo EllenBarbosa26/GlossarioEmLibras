@@ -7,6 +7,14 @@ public class Categoria {
 
     private String image;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Categoria(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
@@ -43,12 +51,5 @@ public class Categoria {
     }
     public String getDescricao() {
         return descricao;
-    }
-
-    public String getImage() {
-        return image;
-    }
-    public void setImage(String image) {
-        this.image = image;
     }
 }

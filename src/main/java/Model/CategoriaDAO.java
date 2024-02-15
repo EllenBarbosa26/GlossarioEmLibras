@@ -8,7 +8,7 @@ public class CategoriaDAO {
 
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/librasdev?user=root";
     private static final String USUARIO = "root";
-    private static final String SENHA = "@102938luk";
+    private static final String SENHA = "";
 
     private static final String TABLE_NAME = "category";
     private static final String COLUMN_ID = "category_id";

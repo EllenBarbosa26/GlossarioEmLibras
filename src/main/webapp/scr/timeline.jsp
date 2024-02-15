@@ -136,14 +136,6 @@
                             <p class="usuario"><%= usuario.getNome()%></p>
                         </div>
 
-                      <%
-                          if (isModerador != null && isModerador) {
-                              // Código específico para moderadores
-                      %>
-                              <ion-icon name="options-outline" class="icon opcoes-especiais"></ion-icon>
-                      <%
-                          }
-                      %>
 
                         <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
                         <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>

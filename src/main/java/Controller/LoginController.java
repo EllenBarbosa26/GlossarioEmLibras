@@ -20,33 +20,11 @@ public class LoginController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        // Obtenha o código inserido pelo moderador
-        String codigoInserido = request.getParameter("codigo");
 
-        // Verifique se o código é igual a "libras0237"
-        if (codigoInserido != null){
-            if ("libras0237".equals(codigoInserido)) {
-
-                HttpSession session = request.getSession(true);
-                session.setAttribute("isModerador", true);
-                // Se for igual, encaminhe para a controller Timeline
-                // pegar email e senha do moderador
-
-                response.sendRedirect(request.getContextPath() + "/timeline");
-
-            } else{
-                // Caso contrário, você pode adicionar lógica para lidar com credenciais inválidas
-                HttpSession session = request.getSession(true);
-                session.setAttribute("msgDeErro", "Código incorreto! Tente novamente!");
-
-                response.sendRedirect(request.getContextPath() + "/");
-            }
-        }
-        else{
-            // Verifique se o usuário existe no banco de dados
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            Usuario usuario = new Usuario("", senha, email);
-            usuario = usuarioDAO.obterUsuarioEmailESenha(usuario);
+        // Verifique se o usuário existe no banco de dados
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuario = new Usuario("", senha, email);
+        usuario = usuarioDAO.obterUsuarioEmailESenha(usuario);
 
             if (usuario != null) {
                 // Se o usuário existe, cria a sessão para o usuário

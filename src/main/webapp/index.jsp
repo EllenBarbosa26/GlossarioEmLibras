@@ -88,9 +88,11 @@
         <div class="conteinergoogleModerador">
             <img class="iconsair" src="scr/img/ph_x-bold.png" alt="">
             <img class="vector" src="scr/img/icon_Vector.png" alt="">
-            <form action="processar-dados">
-                <p>Insira o seu código de moderador:</p>
+            <form action="processar-dados-moderador" method="post">
+                <p>Insira o seu dados de moderador:</p>
                 <input type="text" name="codigo" id="codigo" placeholder="Digite seu Código" required>
+                 <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
                 <button type="submit">Logar</button>
             </form>
         </div>

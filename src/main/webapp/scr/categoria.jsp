@@ -14,11 +14,7 @@
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     Boolean isModerador = (Boolean) session.getAttribute("isModerador");
     List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
-
-
-    if (usuario == null && isModerador == null){
-        response.sendRedirect("../index.jsp");
-    }
+    Moderador moderador = (Moderador) session.getAttribute("moderador");
 %>
 
 <head>
@@ -34,14 +30,14 @@
 <body>
     <aside class="sidebar">
         <header class="cabecalho-sidebar">
-            <form action = "perfil">
+            <form action="perfil">
                 <img class="imgusuario" src="scr/img/image 2.png" alt="sem foto de perfil">
             </form>
             <p><%= usuario.getNome()%></p>
         </header>
 
-        <form action = "perfil">
-              <button class="button-sidebar">
+        <form action="perfil">
+            <button class="button-sidebar">
                 <div>
                     <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
                     <p>Perfil</p>
@@ -49,74 +45,65 @@
             </button>
         </form>
 
-        <form action = "categoria">
-           <button class="button-sidebar categorias">
-              <div>
-                <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
-                <p>Categorias</p>
-              </div>
-           </button>
+        <form action="categoria">
+            <button class="button-sidebar categorias">
+                <div>
+                    <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
+                    <p>Categorias</p>
+                </div>
+            </button>
         </form>
 
+        <form action="ajuda">
+            <button class="button-sidebar">
+                <div>
+                    <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
+                    <p>Ajuda</p>
+                </div>
+            </button>
+        </form>
 
-         <form action="ajuda">
-                <button class="button-sidebar">
-                    <div>
-                        <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
-                        <p>Ajuda</p>
-                    </div>
-                </button>
-                </form>
-
-         <form action = "sugestao">
-                       <button class="button-sidebar">
-                           <div>
-                               <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
-                               <p>Sugestões</p>
-                           </div>
-                       </button>
-                       </form>
+        <form action="sugestao">
+            <button class="button-sidebar">
+                <div>
+                    <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
+                    <p>Sugestões</p>
+                </div>
+            </button>
+        </form>
 
         <ion-icon class="lua iconformat" name="moon-outline"></ion-icon>
         <ion-icon class="sol iconformat" name="sunny-outline"></ion-icon>
-
     </aside>
 
     <main>
         <header class="header-categoria">
             <a href="timeline.jsp"><h1 class="textolibras">LibrasDev</h1></a>
-
             <ion-icon class="icon-publicar" name="duplicate-outline"></ion-icon>
-
             <div class="barra-de-pesquisa">
                 <form class="form-pesquisa" action="">
-
                     <input type="text" name="Pesquisa" id="pesquisa" placeholder="Pesquisar" required>
                     <ion-icon class="ico-lupa" type="submit" name="search-outline"></ion-icon>
                 </form>
-
             </div>
         </header>
 
-       <div class="conteiner-Nova-Categoria">
-                    <ion-icon class="icon-x-categoria" name="close"></ion-icon>
-                    <form action="processar_categoria" method="post" enctype="multipart/form-data">
-                        <input type="file" name="imagem" id="uploadInput" style="display: none;">
-                        <div class="up-img"><ion-icon class="icon-camera" onclick="openFileUploaderCategoria()" name="camera-outline"></ion-icon></div>
-                        <input type="text" name="Nome-categoria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Cadegoria" required>
-                        <input type="text" name="categoria-video" id="categoria-video" placeholder="Descrição" required>
-                        <p class="contagem-Letras-Categoria" id="contagem-palavras-Categoria">0/4 palavras</p>
-                        <button type="submit" class="button-Nova-categoria">Adicionar</button>
-                    </form>
-                </div>
-
-
-
+        <div class="conteiner-Nova-Categoria">
+            <ion-icon class="icon-x-categoria" name="close"></ion-icon>
+            <form action="processar_categoria" method="post" enctype="multipart/form-data">
+                <input type="file" name="imagem" id="uploadInput" style="display: none;">
+                <div class="up-img"><ion-icon class="icon-camera" onclick="openFileUploaderCategoria()" name="camera-outline"></ion-icon></div>
+                <input type="text" name="Nome-categoria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Cadegoria" required>
+                <input type="text" name="categoria-video" id="categoria-video" placeholder="Descrição" required>
+                <p class="contagem-Letras-Categoria" id="contagem-palavras-Categoria">0/4 palavras</p>
+                <button type="submit" class="button-Nova-categoria">Adicionar</button>
+            </form>
+        </div>
 
         <div class="conteiner-categorias">
             <%
-                        if (categorias != null && !categorias.isEmpty() ){
-                        for (Categoria categoria : categorias) {
+                if (categorias != null && !categorias.isEmpty()) {
+                    for (Categoria categoria : categorias) {
             %>
             <div class="catagoria">
                 <div class="quant-videos">
@@ -125,28 +112,29 @@
                 </div>
                 <img class="imagcategoria" src="<%= categoria.getImage()%>" alt="imagem da categoria">
                 <p><%= categoria.getNome() %></p>
-
-                 <ion-icon class="lixeira" name="trash-outline"></ion-icon>
+                <% if (moderador != null) { %>
+                    <ion-icon class="lixeira" name="trash-outline"></ion-icon>
+                <% } %>
             </div>
-                    <div class="conteiner-Apagar-Categoria">
-                                    <p class="msg-de-Aterta">Você realmente dejesa apager esta categoria ?</p>
-                                    <form action="apagar_categoria" method="post">
-                                        <input type="hidden" name="id" value="<%= categoria.getId() %>">
-                                        <button type="submit" class="button-Sim">Sim</button>
-                                    </form>
+            <div class="conteiner-Apagar-Categoria">
+                <% if (moderador != null) { %>
+                    <p class="msg-de-Aterta">Você realmente deseja apagar esta categoria ?</p>
+                    <form action="apagar_categoria" method="post">
+                        <input type="hidden" name="id" value="<%= categoria.getId() %>">
+                        <button type="submit" class="button-Sim">Sim</button>
+                    </form>
                     <button type="submit" class="button-Nao">Não</button>
-                    </div>
-            <%}
+                <% } %>
+            </div>
+            <%
+                    }
                 }
-
             %>
-
         </div>
     </main>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-            <script src="Javc/scripttamiline.js"></script>
-
+    <script src="Javc/scripttamiline.js"></script>
 </body>
 </html>

@@ -12,9 +12,10 @@ public class ModeradorDAO {
     private static final String SENHA = "";
 
     private static final String INSERIR_MODERADOR = "INSERT INTO moderador (username, password, email) VALUES (?, ?, ?)";
-    private static final String OBTER_MODERADOR_POR_ID = "SELECT * FROM moderador WHERE moderador_id = ?";
-    private static final String ATUALIZAR_MODERADOR = "UPDATE moderador SET username = ?, password = ?, email = ? WHERE moderador_id = ?";
-    private static final String EXCLUIR_MODERADOR = "DELETE FROM moderador WHERE moderador_id = ?";
+    private static final String OBTER_MODERADOR_POR_ID = "SELECT * FROM moderador WHERE moderator_id = ?";
+    private static final String ATUALIZAR_MODERADOR = "UPDATE moderador SET username = ?, password = ?, email = ? WHERE moderator_id = ?";
+    private static final String EXCLUIR_MODERADOR = "DELETE FROM moderador WHERE moderator_id = ?";
+    private static final String OBTER_MODERADOR_POR_EMAIL_SENHA = "SELECT * FROM moderador WHERE email = ? AND password = ?";
 
     public void inserirModerador(Moderador moderador) {
         try (Connection connection = DriverManager.getConnection(URL, USUARIO, SENHA);
@@ -78,5 +79,29 @@ public class ModeradorDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Moderador obterModeradorEmailESenha(Moderador moderador) {
+        try (Connection conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement pstmt = conexao.prepareStatement(OBTER_MODERADOR_POR_EMAIL_SENHA)) {
+            pstmt.setString(1, moderador.getEmail());
+            pstmt.setString(2, moderador.getSenha());
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Moderador moderadorBD = new Moderador(
+                            rs.getString("username"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getInt("moderator_id")
+                    );
+                    return moderadorBD;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
