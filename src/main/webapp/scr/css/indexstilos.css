@@ -289,10 +289,10 @@ body {
     margin-left: 400px;
 }
 
-.logarModerador {
+.logarModerador{
     background-color: rgba(194, 182, 244, 1);
     width: 400px;
-    height: 250px;
+    height: 290px;
     border-radius: 15px;
     position: absolute;
     box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.311);
