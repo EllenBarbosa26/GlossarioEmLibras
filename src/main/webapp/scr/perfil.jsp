@@ -82,7 +82,7 @@
     <main>
         <header class="bio-perfil">
             <div class="bio">
-                <img class="imag-perfil" src="img/Usuario-img.jpg" alt="">
+                <img class="imag-perfil" src="scr/img/Usuario-img.jpg" alt="">
                 <div class="texto-bio">
                     <h1 class="usuario">@<%= usuario.getNome()%></h1>
                     <button class="editar-perfil">Editar Perfil</button>
@@ -103,7 +103,7 @@
                     <ion-icon class="x-sair" name="backspace-outline"></ion-icon>
                     <input type="file" id="uploadInput" style="display: none;">
                     <ion-icon class="camera-icon" name="camera-outline" onclick="openFileUploader()"></ion-icon>
-                    <img class="img" src="img/Usuario-img.jpg" alt="">
+                    <img class="img" src="scr/img/Usuario-img.jpg" alt="">
                     <input type="text" name="NovoNome" id="novonome" placeholder="@NovoNome" required>
                 </div>
                 <div class="bionovotexto">
