@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Galada&family=Hubballi&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+.sugestoes{
+    background-color: rgba(136, 119, 205, 1);
+}
+
+.texto-sugestoes{
+ max-width: 1040px;
+ margin-left: 20px;
+}
+
+.conteiner-contatos{
+    display: flex;
+    justify-content: center;
+}
+
+.textoprincipal{
+    color: rgb(109, 95, 163);
+}
+
+.box-contatos{
+    margin-top: 30px;
+    background-color: rgba(151, 131, 230, 0.74);
+    width: 250px;
+    height: 230px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.box-icon-text{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+}
+
+.icon-contatos{
+    font-size: 70px;
+    margin: 0%;
+    margin-top: 30px;
+    color: white;
+}
+
+.box-icon-text> p{
+    margin: 0%;
+    margin-top: -5px;
+    color: white;
+}
+
+.button-contato{
+    border: none;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 15px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    width: 170px;
+    transition: all 0.3s;
+}
+
+
+.button-contato:hover{
+  transform: scale(1.1);
+}
+
+
+@media (max-width: 644px) {
+    .conteiner-contatos{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+    }
+}
