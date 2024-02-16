@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Galada&family=Hubballi&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+.ajuda{
+    background-color: rgba(136, 119, 205, 1);
+}
+
+.cabecalho-ajuda> h1{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: rgba(151, 131, 230, 1);
+}
+
+.tipos-de-ajuda {
+    margin-top: 3   0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boxtipos{
+    display: flex;
+    background-color: rgba(161, 240, 159, 0.87);
+    width: 250px;
+    height: 100px;
+    border-radius: 20px;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-left: 10px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.icon-tipos{
+    font-size: 80px;
+    color: rgba(26, 151, 45, 0.817);
+    margin-left: 10px;
+    padding: 0%;
+    margin-top: -5px;
+}
+
+.boxtipos > p{
+    font-size: 14px;
+    color: rgb(22, 135, 39);
+    margin-left: 80px;
+    margin-top: 80px;
+    padding: 0%;
+    position: absolute;
+}
+
+.boxtipos:hover{
+    transform: scale(1.05);
+}
+
+.sobre-midias{
+    background-color: rgba(246, 231, 98, 0.87);
+}
+
+.icon-midia{
+    color: rgb(203, 186, 26);
+    font-size: 60px;
+    margin-left: 20px;
+}
+
+.sobre-midias > p{
+    color: rgb(138, 126, 15);
+}
+
+.sobre-simbulos{
+    background-color: rgba(235, 128, 186, 0.87);
+}
+
+.icon-simbulos{
+    color: rgba(231, 65, 156, 0.998);
+    font-size: 60px;
+    margin-left: 20px;
+}
+
+.sobre-simbulos > p{
+    color: rgba(177, 51, 120, 0.998);
+}
+
+.direitos-deveres{
+    background-color: rgba(159, 191, 240, 0.87);
+}
+
+.icon-DeD{
+    color:  rgb(117, 142, 178);
+    font-size: 60px;
+}
+
+.direitos-deveres> p{
+    color: rgba(86, 102, 127, 0.87);
+}
+
+.box-contatos{
+    border: solid 1px rgb(156, 30, 214);
+    border-radius: 15px;
+    margin-top: 20px;
+    max-width: 1050px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.879);
+}
+
+.texto-imformativo{
+    width: 500px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.texto-imformativo> p{
+    font-size: 17px;
+}
+
+.boxcontatos{
+    display: flex;
+    background-color: rgba(151, 131, 230, 1);
+    border-radius: 18px;
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 290px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.boxcontatos> p{
+    color: rgb(241, 232, 242);
+    margin-left: 10px;
+}
+
+.icon-contatos{
+    font-size: 30px;
+    color: rgb(228, 220, 230);
+    margin-left: 10px;
+
+}
+
+.boxcontatos:hover{
+    background-color: rgb(113, 85, 217);
+}
+
+.boxcontatos:hover p{
+    color: rgb(255, 255, 255);
+}
+
+.boxcontatos:hover .icon-contatos{
+    color: rgb(255, 255, 255);
+}
+
+.conteiner-centralizacao{
+    display: flex;
+    justify-content: center;
+}
+
+.box-imformacao{
+    border: solid 2px rgb(208, 32, 228);
+    max-width: 900px;
+    border-radius: 20px;
+    position: absolute;
+    background-color: white;
+    z-index: 99999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cabecalho-box{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.icon-box{
+    font-size: 50px;
+    margin-left: 25px;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: rgb(208, 32, 228);
+}
+
+.cabecalho-box> p{
+    color: rgb(208, 32, 228);
+    margin-bottom: 0%;
+}
+
+.icon-x-box{
+    font-size: 30px;
+    transition: all 0.3s;
+    position: absolute;
+    right: 20px;
+    top: 20%;
+    cursor: pointer;
+}
+
+.imformacoes> p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.icon-x-box:hover{
+    transform: scale(1.2);
+}
+
+.box-imformacao.show {
+    display: block;
+    opacity: 1;
+}
+
+.sobre-icon{
+    display: flex;
+}
+
+.iconsobre{
+    font-size: 130px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: -50px;
+}
