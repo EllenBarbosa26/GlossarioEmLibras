@@ -93,7 +93,7 @@
             <form action="processar_categoria" method="post" enctype="multipart/form-data">
                 <input type="file" name="imagem" id="uploadInput" style="display: none;">
                 <div class="up-img"><ion-icon class="icon-camera" onclick="openFileUploaderCategoria()" name="camera-outline"></ion-icon></div>
-                <input type="text" name="Nome-categoria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Cadegoria" required>
+                <input type="text" name="Nome-categoria" id="Nome-categoria" oninput="limitarPalavrasCategoria()" placeholder="Nome da Categoria" required>
                 <input type="text" name="categoria-video" id="categoria-video" placeholder="Descrição" required>
                 <p class="contagem-Letras-Categoria" id="contagem-palavras-Categoria">0/4 palavras</p>
                 <button type="submit" class="button-Nova-categoria">Adicionar</button>

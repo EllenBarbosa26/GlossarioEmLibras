@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.Moderador" %>
+<%@ page import="Model.Video" %>
 
 <!DOCTYPE html>
 
@@ -103,7 +104,7 @@
             <ion-icon class="icon-x-publicacao" name="close"></ion-icon>
             <form action="">
                 <input type="file" d="uploadInput" style="display: none;">
-                <div class="up-video"><ion-icon onclick="openFileUploader()" class="icon-video" name="videocam"></ion-icon></div>
+                <div class="up-video"><ion-icon onclick="openFileUploaderTimeline()" class="icon-video" name="videocam"></ion-icon></div>
                 <input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>
                 <input type="text" name="NomeDoVideo" id="Nome-video" oninput="limitarPalavrasPublicar()" placeholder="Nome do Video" required>
                 <p class="contagem-publica" id="contagem-palavras-publicar">0/4 palavras</p>
@@ -117,7 +118,7 @@
         <div class="conteiner-editar-video">
                     <ion-icon class="icon-x-editar" name="close"></ion-icon>
                     <form action="">
-                        <video class="video-test up-video-editar" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" muted loop></video>
+                        <video class="video-test up-video-editar" src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" muted loop></video>
                         <input type="text" name="Categoria" id="categoria-video-editar" placeholder="Categoria" required>
                         <input type="text" name="NomeDoVideo" id="nome-video-editar" oninput="limitarPalavrasEditar()" placeholder="Novo nome do Video" required>
                         <p class="contagem-publica" id="contagem-palavras-editar">0/4 palavras</p>
@@ -129,7 +130,7 @@
         <div class="conteiner-comentario">
         <div class="video-demostracao">
                         <ion-icon class="icon-x-comentario" name="close"></ion-icon>
-                        <video class="video-test" src="scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
+                        <video class="video-test" src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4"
                             loop muted></video>
                         <div class="texto-video">
                             <h1 class="novonome">Nome do video</h1>
@@ -164,11 +165,11 @@
 <% for(int i = 0; i <20; i++) {%>
             <div class="videos">
                 <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                    src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
+                        <p class="usuario"><%= usuario.getNome()%></p>
                     </div>
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
@@ -179,6 +180,21 @@
             </div>
             <%}%>
 
+    <div class="videos">
+        <video class="video-test video-test2"
+               src="<%=video.getArquivo%>" loop muted></video>
+        <div class="acoes-video">
+            <div class="texto-video">
+                <h1 class="nome-do-video nomevideo">Nome do video</h1>
+                <p class="usuario"><%= usuario.getNome()%></p>
+            </div>
+            <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+            <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+            <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
+
+
+        </div>
+    </div>
 
 
     </main>

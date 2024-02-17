@@ -73,7 +73,7 @@
         <div class="conteinergoogleUsuario">
             <img class="iconsairusuario" src="scr/img/ph_x-bold.png" alt="">
             <img class="vector" src="scr/img/icon_Vector.png" alt="">
-            <form action="processar-dados">
+            <form action="processar-dados-usuario">
                 <p>Insira o seu Email e senha:</p>
                 <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
