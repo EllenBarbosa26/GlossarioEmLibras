@@ -56,9 +56,9 @@ public class VideoController extends HttpServlet {
         VideoDAO videoDAO = new VideoDAO();
         HttpSession session = request.getSession(true);
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        Video video = new Video(nome, caminhoVideo, usuario.getCodigo(), Integer.valueOf(categoria));
+        Video video = new Video(nome, caminhoRelativo, usuario.getCodigo(), Integer.valueOf(categoria));
 
-        response.sendRedirect("/GlossarioEmLibra/categoria");
+        response.sendRedirect("/GlossarioEmLibra/timeline");
 
     }
 }
