@@ -28,65 +28,7 @@
 
 
 <body>
-
-    <aside class="sidebar">
-        <header class="cabecalho-sidebar">
-            <form action="perfil">
-            <a><img class="imgusuario" src="scr/img/image 2.png"
-                    alt="sem foto de perfil"></a>
-            </form>
-            <p>
-                <%if (usuario != null) {%>
-                    <%=usuario.getNome()%>
-                <%} else {%>
-                    <%=moderador.getNome()%>
-                <%}%>
-            </p>
-
-        </header>
-
-        <form action="perfil">
-            <button class="button-sidebar">
-                <div>
-                    <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
-                    <p>Perfil</p>
-                </div>
-            </button>
-        </form>
-
-
-        <form action="categoria">
-            <button class="button-sidebar">
-                <div>
-                    <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
-                    <p>Categorias</p>
-                </div>
-            </button>
-        </form>
-
-
-        <form action="ajuda">
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
-                <p>Ajuda</p>
-            </div>
-        </button>
-        </form>
-
-<form action = "sugestao">
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
-                <p>Sugestões</p>
-            </div>
-        </button>
-        </form>
-
-        <ion-icon class="lua iconformat" name="moon-outline"></ion-icon>
-        <ion-icon class="sol iconformat" name="sunny-outline"></ion-icon>
-
-    </aside>
+    <jsp:include page="../aside.jsp"/>
 
     <main>
         <header class="header-categoria">
