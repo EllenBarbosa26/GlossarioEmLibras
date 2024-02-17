@@ -18,6 +18,12 @@ public class Video {
         this.userId = userId;
         this.categoryId = categoryId;
     }
+    public Video(String title, String arquivoUrl, int userId, int categoryId) {
+        this.title = title;
+        this.arquivoUrl = arquivoUrl;
+        this.userId = userId;
+        this.categoryId = categoryId;
+    }
 
     public int getVideoId() {
         return videoId;

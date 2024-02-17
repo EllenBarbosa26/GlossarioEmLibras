@@ -2,6 +2,8 @@
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.Moderador" %>
 <%@ page import="Model.Video" %>
+<%@ page import="Model.Categoria" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +13,7 @@
     <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
     <link rel="stylesheet" href="scr/css/catagoriaestilos.css">
     <link rel="stylesheet" href="scr/css/timeline.css">
-    <script src="scr/Javc/scripttamiline.js"></script>
+    <%--<script src="scr/Javc/scripttamiline.js"></script>--%>
     <script src="scr/Javc/categoria.js"></script>
     <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
@@ -50,18 +52,24 @@
 
         <div class="conteiner-publicacao">
             <ion-icon class="icon-x-publicacao" name="close"></ion-icon>
-            <form action="">
-                <input type="file" d="uploadInput" style="display: none;">
-                <div class="up-video"><ion-icon onclick="openFileUploaderTimeline()" class="icon-video" name="videocam"></ion-icon></div>
-                <input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>
+            <form action="/add-video" method="post" enctype="multipart/form-data">
+                <input type="file" name="Video" id="uploadInput" accept="video/*" style="display: none;">
+                <div class="up-video"><ion-icon class="icon-video" onclick="openFileUploaderTimeline()" name="videocam"></ion-icon></div>
+                <%--<input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>--%>
+                <select name="Categoria" id="categoria-video">
+                    <%
+                        List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+                        for (Categoria categoria : categorias){%>
+                            <option value="<%= categoria.getId()%>"><%= categoria.getNome()%></option>
+                        <%}
+                    %>
+                </select>
+                <div id="videofinder"></div>
                 <input type="text" name="NomeDoVideo" id="Nome-video" oninput="limitarPalavrasPublicar()" placeholder="Nome do Video" required>
                 <p class="contagem-publica" id="contagem-palavras-publicar">0/4 palavras</p>
                 <button type="submit" class="button-publicar-video">publicar</button>
             </form>
         </div>
-
-
-
 
         <div class="conteiner-editar-video">
                     <ion-icon class="icon-x-editar" name="close"></ion-icon>
@@ -142,6 +150,19 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="scr/Javc/scripttamiline.js"></script>
+    <script>
+        function openFileUploaderTimeline() {
+            const uploadInput = document.getElementById('uploadInput');
+            if (!uploadInput) {
+                console.error("Elemento 'uploadInput' não encontrado.");
+                return;
+            }
+
+            uploadInput.click();
+        }
+    </script>
+
 </body>
 
 </html>

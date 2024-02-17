@@ -85,16 +85,13 @@ public class CategoriaController extends HttpServlet {
 
     protected void categoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 
-
         CategoriaDAO categoriaDAO = new CategoriaDAO(); // Pode ser necessário ajustar isso dependendo de como você está gerenciando suas conexões.
         List<Categoria> categorias = categoriaDAO.getAllCategorias();
-
 
         request.setAttribute("categorias", categorias);
 
         RequestDispatcher rd = request.getRequestDispatcher("scr/categoria.jsp");
         rd.forward(request, response);
-
 
     }
 

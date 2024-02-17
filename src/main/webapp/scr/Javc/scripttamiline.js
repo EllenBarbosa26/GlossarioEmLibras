@@ -48,24 +48,6 @@ function limitarPalavras() {
     contagemPalavras.textContent = palavras.length + '/10 palavras';
 }
 
-function openFileUploaderTimeline() {
-    document.getElementById('uploadInput').click();
-
-    // Quando o usuário selecionar um arquivo, executar esta função
-    document.getElementById('uploadInput').onchange = function(event) {
-        // Verificar se há arquivos selecionados
-        if (event.target.files.length > 0) {
-            const file = event.target.files[0];
-            const videoSelecionado = URL.createObjectURL(file);
-
-            document.querySelector('.video-test video-test2').src = videoSelecionado;
-
-            console.log('Vídeo selecionado:', videoSelecionado);
-            console.log('Caminho do arquivo:', file.name);
-        }
-    };
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     var sidebar = document.querySelector('.sidebar');
     var lua = document.querySelector('.lua');
