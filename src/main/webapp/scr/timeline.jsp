@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
     <link rel="stylesheet" href="scr/css/catagoriaestilos.css">
     <link rel="stylesheet" href="scr/css/timeline.css">
-    <%--<script src="scr/Javc/scripttamiline.js"></script>--%>
     <script src="scr/Javc/categoria.js"></script>
     <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
@@ -55,7 +54,6 @@
             <form action="add-video" method="post" enctype="multipart/form-data">
                 <input type="file" name="Video" id="uploadInput" accept="video/*" style="display: none;">
                 <div class="up-video"><ion-icon class="icon-video" onclick="openFileUploaderTimeline()" name="videocam"></ion-icon></div>
-                <%--<input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>--%>
                 <select name="Categoria" id="categoria-video">
                     <%
                         List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");

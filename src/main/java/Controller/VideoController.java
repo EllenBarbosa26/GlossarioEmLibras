@@ -1,10 +1,6 @@
 package Controller;
 
-import Model.Categoria;
-import Model.CategoriaDAO;
-import Model.VideoDAO;
-import Model.Video;
-import Model.Usuario;
+import Model.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,17 +52,25 @@ public class VideoController extends HttpServlet {
         VideoDAO videoDAO = new VideoDAO();
         HttpSession session = request.getSession(true);
         Usuario usuario = (Usuario) session.getAttribute("usuario");
+        Moderador moderador = (Moderador) session.getAttribute("moderador");
 
-        Video video = new Video(nome, caminhoRelativo, usuario.getCodigo(), Integer.valueOf(categoria));
-        try {
-            videoDAO.addVideo(video);
+        if (usuario != null) {
+            Video video = new Video(nome, caminhoRelativo, usuario.getCodigo(), Integer.valueOf(categoria));
+            try {
+                videoDAO.addVideo(video);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Video video = new Video(nome, caminhoRelativo, moderador.getCodigo(), Integer.valueOf(categoria));
+            try {
+                videoDAO.addVideo(video);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
-
         response.sendRedirect("/GlossarioEmLibra/timeline");
-
     }
 }
