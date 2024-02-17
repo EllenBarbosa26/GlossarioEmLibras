@@ -52,7 +52,7 @@
 
         <div class="conteiner-publicacao">
             <ion-icon class="icon-x-publicacao" name="close"></ion-icon>
-            <form action="/add-video" method="post" enctype="multipart/form-data">
+            <form action="add-video" method="post" enctype="multipart/form-data">
                 <input type="file" name="Video" id="uploadInput" accept="video/*" style="display: none;">
                 <div class="up-video"><ion-icon class="icon-video" onclick="openFileUploaderTimeline()" name="videocam"></ion-icon></div>
                 <%--<input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>--%>
