@@ -21,7 +21,7 @@
 <%
 
  Usuario usuario = (Usuario) session.getAttribute("usuario");
-
+ Video video = (Video) session.getAttribute("video");
 %>
 <% Boolean isModerador = (Boolean) session.getAttribute("isModerador");%>
 
@@ -182,7 +182,7 @@
 
     <div class="videos">
         <video class="video-test video-test2"
-               src="<%=video.getArquivo%>" loop muted></video>
+               src="<%= video.getArquivoUrl()%>" loop muted></video>
         <div class="acoes-video">
             <div class="texto-video">
                 <h1 class="nome-do-video nomevideo">Nome do video</h1>
