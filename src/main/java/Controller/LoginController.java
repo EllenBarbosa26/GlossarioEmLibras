@@ -14,8 +14,10 @@ import Model.Usuario;
 import Model.UsuarioDAO;
 import Model.Moderador;
 import Model.ModeradorDAO;
+import jdk.internal.org.jline.terminal.TerminalBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 @WebServlet(urlPatterns = {"/processar-dados-usuario", "/processar-dados-moderador"})
 public class LoginController extends HttpServlet {
@@ -32,7 +34,6 @@ public class LoginController extends HttpServlet {
         }
     }
     protected void processUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 

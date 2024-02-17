@@ -19,8 +19,8 @@
 <html lang="pt-br">
 
 <%
-
  Usuario usuario = (Usuario) session.getAttribute("usuario");
+ Moderador moderador = (Moderador) session.getAttribute("moderador");
  Video video = (Video) session.getAttribute("video");
 %>
 <% Boolean isModerador = (Boolean) session.getAttribute("isModerador");%>
@@ -35,7 +35,13 @@
             <a><img class="imgusuario" src="scr/img/image 2.png"
                     alt="sem foto de perfil"></a>
             </form>
-            <p><%= usuario.getNome()%></p>
+            <p>
+                <%if (usuario != null) {%>
+                    <%=usuario.getNome()%>
+                <%} else {%>
+                    <%=moderador.getNome()%>
+                <%}%>
+            </p>
 
         </header>
 
@@ -134,7 +140,7 @@
                             loop muted></video>
                         <div class="texto-video">
                             <h1 class="novonome">Nome do video</h1>
-                            <p class="usuario"><%= usuario.getNome()%></p>
+                            <p class="usuario">@Usuário</p>
                         </div>
 
 
@@ -169,7 +175,7 @@
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario"><%= usuario.getNome()%></p>
+                        <p class="usuario">@Usuário</p>
                     </div>
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
@@ -180,14 +186,7 @@
             </div>
             <%}%>
 
-    <div class="videos">
-        <video class="video-test video-test2"
-               src="<%= video.getArquivoUrl()%>" loop muted></video>
-        <div class="acoes-video">
-            <div class="texto-video">
-                <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                <p class="usuario"><%= usuario.getNome()%></p>
-            </div>
+
             <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
             <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
             <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
