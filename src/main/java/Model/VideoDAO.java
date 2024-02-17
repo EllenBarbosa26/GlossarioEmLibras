@@ -18,17 +18,30 @@ public class VideoDAO {
 
     public void addVideo(Video video) throws SQLException {
         LocalDate dataAtual = LocalDate.now();
-        String sql = "INSERT INTO video (video_id, title, arquivo, upload_date, user_id, category_id) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, video.getVideoId());
-            statement.setString(2, video.getTitle());
-            statement.setString(3, video.getArquivoUrl());
-            statement.setDate(4, java.sql.Date.valueOf(dataAtual));
-            statement.setInt(5, video.getUserId());
-            statement.setInt(6, video.getCategoryId());
-            statement.executeUpdate();
+        String sql = "INSERT INTO video (title, arquivo, upload_date, user_id, category_id) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, video.getTitle());
+            statement.setString(2, video.getArquivoUrl());
+            statement.setDate(3, java.sql.Date.valueOf(dataAtual));
+            statement.setInt(4, video.getUserId());
+            statement.setInt(5, video.getCategoryId());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int generatedId = generatedKeys.getInt(1);
+                        video.setVideoId(generatedId);
+                    } else {
+                        throw new SQLException("Falha ao obter o ID gerado para o vídeo.");
+                    }
+                }
+            } else {
+                throw new SQLException("Falha ao inserir o vídeo, nenhuma linha afetada.");
+            }
         }
     }
+
 
     public Video getVideoById(int videoId) throws SQLException {
         String sql = "SELECT * FROM video WHERE video_id = ?";
