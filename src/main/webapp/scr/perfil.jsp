@@ -23,6 +23,101 @@
     <script src="scr/Javc/scripttamiline.js"></script>
     <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
+
+    <style>
+    .icon-sair-perfil {
+        font-size: 28px;
+        margin-left: 10px;
+        margin-top: 6px;
+        cursor: pointer;
+        color: rgb(112, 97, 171);
+        transition: all 0.2s;
+    }
+
+    .icon-sair-perfil:hover {
+        transform: scale(1.2);
+    }
+
+    .conteiner-sair-perfil{
+        position: absolute;
+        margin-left: 120px;
+        border: solid 1px rgba(151, 131, 230, 1);
+        width: 450px;
+        margin-top: 20px;
+        height: 170px;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.884);
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 500px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+    }
+
+    .msg-sair{
+        text-align: center;
+    }
+
+    .button-Nao{
+        position: absolute;
+        background-color: rgba(151, 131, 230, 1);
+        border:none;
+        width: 100px;
+        height: 35px;
+        border-radius: 15px;
+        color: #ffffff;
+        transition: transform 0.3s;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 260px;
+    }
+
+    .button-Sim{
+        position: absolute;
+        background-color: rgba(151, 131, 230, 1);
+        border:none;
+        width: 100px;
+        height: 35px;
+        border-radius: 15px;
+        color: #ffffff;
+        transition: transform 0.3s;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 100px;
+    }
+
+    .button-Nao:hover{
+        transform: scale(1.1);
+    }
+
+    .button-Sim:hover{
+        transform: scale(1.1);
+    }
+    </style>
+    <script>
+         document.addEventListener('DOMContentLoaded', function () {
+
+             var sairApagar = document.querySelectorAll('.button-Nao');
+             var conteinerSair = document.querySelectorAll('.conteiner-sair-perfil');
+             var iconsair = document.querySelectorAll('.icon-sair-perfil');
+
+             sairApagar.forEach(function (sair, index) {
+                 sair.addEventListener('click', function () {
+                     conteinerSair[index].style.display = 'none';
+                 });
+             });
+
+             iconsair.forEach(function (icon, index) {
+                 icon.addEventListener('click', function () {
+                     conteinerSair[index].style.display = 'block';
+                 });
+             });
+
+         });
+    </script>
 </head>
 
 <body>
@@ -32,13 +127,20 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <main>
+
+            <div class="conteiner-sair-perfil">
+                <p class="msg-sair">Você realmente dejesa sair?</p>
+                <button type="submit" class="button-Sim">Sim</button>
+                <button type="submit" class="button-Nao">Não</button>
+            </div>
+
         <header class="bio-perfil">
             <div class="bio">
                 <img class="imag-perfil" src="scr/img/Usuario-img.jpg" alt="">
                 <div class="texto-bio">
                     <h1 class="usuario">@<%= usuario.getNome()%></h1>
                     <button class="editar-perfil">Editar Perfil</button>
-
+                    <ion-icon class="icon-sair-perfil" name="log-out-outline"></ion-icon>
                 </div>
                 <div class="legenda-bio">
                     <p class="textodabio">Meu nome é Hitalmo Fernandes, sou intérprete de Libras há mais de 3 anos.</p>
@@ -116,7 +218,6 @@
         <div class="contricuicoes">
             <div>
                 <p class="suas-contribuicoes">Suas Contribuições:</p>
-
             </div>
         </div>
 
