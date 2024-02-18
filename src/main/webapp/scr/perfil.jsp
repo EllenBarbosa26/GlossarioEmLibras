@@ -97,6 +97,7 @@
         transform: scale(1.1);
     }
     </style>
+    <!-- codigo para abrir o msg-sair -->
     <script>
          document.addEventListener('DOMContentLoaded', function () {
 
