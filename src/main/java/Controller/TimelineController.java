@@ -1,5 +1,8 @@
 package Controller;
 
+import Model.Categoria;
+import Model.CategoriaDAO;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,12 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/timeline")
 
 public class TimelineController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        CategoriaDAO categoriaDAO = new CategoriaDAO(); // Pode ser necessário ajustar isso dependendo de como você está gerenciando suas conexões.
+        List<Categoria> categorias = categoriaDAO.getAllCategorias();
+
+        request.setAttribute("categorias", categorias);
 
         RequestDispatcher rd = request.getRequestDispatcher("scr/timeline.jsp");
         rd.forward(request, response);

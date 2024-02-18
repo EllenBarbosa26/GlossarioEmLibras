@@ -48,10 +48,6 @@ function limitarPalavras() {
     contagemPalavras.textContent = palavras.length + '/10 palavras';
 }
 
-function openFileUploader() {
-    document.getElementById('uploadInput').click();
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     var sidebar = document.querySelector('.sidebar');
     var lua = document.querySelector('.lua');

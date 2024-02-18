@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModeradorDAO {
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/?user=root";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/librasdev?user=root";
     private static final String USUARIO = "root";
     private static final String SENHA = "@102938luk";
 
-    private static final String INSERIR_MODERADOR = "INSERT INTO moderador (username, password, email) VALUES (?, ?, ?)";
-    private static final String OBTER_MODERADOR_POR_ID = "SELECT * FROM moderador WHERE moderator_id = ?";
-    private static final String ATUALIZAR_MODERADOR = "UPDATE moderador SET username = ?, password = ?, email = ? WHERE moderator_id = ?";
-    private static final String EXCLUIR_MODERADOR = "DELETE FROM moderador WHERE moderator_id = ?";
-    private static final String OBTER_MODERADOR_POR_EMAIL_SENHA = "SELECT * FROM moderador WHERE email = ? AND password = ?";
+    private static final String INSERIR_MODERADOR = "INSERT INTO admin (username, password, email) VALUES (?, ?, ?)";
+    private static final String OBTER_MODERADOR_POR_ID = "SELECT * FROM admin WHERE moderator_id = ?";
+    private static final String ATUALIZAR_MODERADOR = "UPDATE admin SET username = ?, password = ?, email = ? WHERE moderator_id = ?";
+    private static final String EXCLUIR_MODERADOR = "DELETE FROM admin WHERE moderator_id = ?";
+    private static final String OBTER_MODERADOR_POR_EMAIL_SENHA = "SELECT * FROM admin WHERE email = ? AND password = ?";
 
     public void inserirModerador(Moderador moderador) {
         try (Connection connection = DriverManager.getConnection(URL, USUARIO, SENHA);

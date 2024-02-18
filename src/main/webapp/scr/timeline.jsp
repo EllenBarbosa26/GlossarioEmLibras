@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.Moderador" %>
+<%@ page import="Model.Video" %>
+<%@ page import="Model.Categoria" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +13,6 @@
     <link rel="shortcut icon" href="scr/img/image 2.png" type="image/librasdev">
     <link rel="stylesheet" href="scr/css/catagoriaestilos.css">
     <link rel="stylesheet" href="scr/css/timeline.css">
-    <script src="scr/Javc/scripttamiline.js"></script>
     <script src="scr/Javc/categoria.js"></script>
     <script src="scr/Javc/like.js"></script>
     <title>LibrasDev</title>
@@ -18,68 +20,16 @@
 <html lang="pt-br">
 
 <%
-
  Usuario usuario = (Usuario) session.getAttribute("usuario");
-
+ Moderador moderador = (Moderador) session.getAttribute("moderador");
+ Video video = (Video) session.getAttribute("video");
 %>
 <% Boolean isModerador = (Boolean) session.getAttribute("isModerador");%>
 
 
 
 <body>
-
-    <aside class="sidebar">
-        <header class="cabecalho-sidebar">
-            <form action="perfil">
-            <a><img class="imgusuario" src="scr/img/image 2.png"
-                    alt="sem foto de perfil"></a>
-            </form>
-            <p><%= usuario.getNome()%></p>
-
-        </header>
-
-        <form action="perfil">
-            <button class="button-sidebar">
-                <div>
-                    <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
-                    <p>Perfil</p>
-                </div>
-            </button>
-        </form>
-
-
-        <form action="categoria">
-            <button class="button-sidebar">
-                <div>
-                    <ion-icon class="icon-sidebar" name="book-outline"></ion-icon>
-                    <p>Categorias</p>
-                </div>
-            </button>
-        </form>
-
-
-        <form action="ajuda">
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="help-circle-outline"></ion-icon>
-                <p>Ajuda</p>
-            </div>
-        </button>
-        </form>
-
-<form action = "sugestao">
-        <button class="button-sidebar">
-            <div>
-                <ion-icon class="icon-sidebar" name="hand-left-outline"></ion-icon>
-                <p>Sugestões</p>
-            </div>
-        </button>
-        </form>
-
-        <ion-icon class="lua iconformat" name="moon-outline"></ion-icon>
-        <ion-icon class="sol iconformat" name="sunny-outline"></ion-icon>
-
-    </aside>
+    <jsp:include page="../aside.jsp"/>
 
     <main>
         <header class="header-categoria">
@@ -101,23 +51,28 @@
 
         <div class="conteiner-publicacao">
             <ion-icon class="icon-x-publicacao" name="close"></ion-icon>
-            <form action="">
-                <input type="file" d="uploadInput" style="display: none;">
-                <div class="up-video"><ion-icon onclick="openFileUploader()" class="icon-video" name="videocam"></ion-icon></div>
-                <input type="text" name="Categoria" id="categoria-video" placeholder="Categoria" required>
+            <form action="add-video" method="post" enctype="multipart/form-data">
+                <input type="file" name="Video" id="uploadInput" accept="video/*" style="display: none;">
+                <div class="up-video"><ion-icon class="icon-video" onclick="openFileUploaderTimeline()" name="videocam"></ion-icon></div>
+                <select name="Categoria" id="categoria-video">
+                    <%
+                        List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+                        for (Categoria categoria : categorias){%>
+                            <option value="<%= categoria.getId()%>"><%= categoria.getNome()%></option>
+                        <%}
+                    %>
+                </select>
+                <div id="videofinder"></div>
                 <input type="text" name="NomeDoVideo" id="Nome-video" oninput="limitarPalavrasPublicar()" placeholder="Nome do Video" required>
                 <p class="contagem-publica" id="contagem-palavras-publicar">0/4 palavras</p>
                 <button type="submit" class="button-publicar-video">publicar</button>
             </form>
         </div>
 
-
-
-
         <div class="conteiner-editar-video">
                     <ion-icon class="icon-x-editar" name="close"></ion-icon>
                     <form action="">
-                        <video class="video-test up-video-editar" src="/scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" muted loop></video>
+                        <video class="video-test up-video-editar" src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" muted loop></video>
                         <input type="text" name="Categoria" id="categoria-video-editar" placeholder="Categoria" required>
                         <input type="text" name="NomeDoVideo" id="nome-video-editar" oninput="limitarPalavrasEditar()" placeholder="Novo nome do Video" required>
                         <p class="contagem-publica" id="contagem-palavras-editar">0/4 palavras</p>
@@ -129,11 +84,11 @@
         <div class="conteiner-comentario">
         <div class="video-demostracao">
                         <ion-icon class="icon-x-comentario" name="close"></ion-icon>
-                        <video class="video-test" src="scr/video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4"
+                        <video class="video-test" src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4"
                             loop muted></video>
                         <div class="texto-video">
                             <h1 class="novonome">Nome do video</h1>
-                            <p class="usuario"><%= usuario.getNome()%></p>
+                            <p class="usuario">@Usuário</p>
                         </div>
 
 
@@ -164,11 +119,11 @@
 <% for(int i = 0; i <20; i++) {%>
             <div class="videos">
                 <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
+                    src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
                         <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
+                        <p class="usuario">@Usuário</p>
                     </div>
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
@@ -180,11 +135,32 @@
             <%}%>
 
 
+            <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+            <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+            <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
+
+
+        </div>
+    </div>
+
 
     </main>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="scr/Javc/scripttamiline.js"></script>
+    <script>
+        function openFileUploaderTimeline() {
+            const uploadInput = document.getElementById('uploadInput');
+            if (!uploadInput) {
+                console.error("Elemento 'uploadInput' não encontrado.");
+                return;
+            }
+
+            uploadInput.click();
+        }
+    </script>
+
 </body>
 
 </html>
