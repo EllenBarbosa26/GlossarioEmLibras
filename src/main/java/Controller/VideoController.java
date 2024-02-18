@@ -57,16 +57,14 @@ public class VideoController extends HttpServlet {
         if (usuario != null) {
             Video video = new Video(nome, caminhoRelativo, usuario.getCodigo(), Integer.valueOf(categoria));
             try {
-                videoDAO.addVideo(video);
-
+                videoDAO.addVideo(video, false, 0);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } else {
+        } else{
             Video video = new Video(nome, caminhoRelativo, moderador.getCodigo(), Integer.valueOf(categoria));
             try {
-                videoDAO.addVideo(video);
-
+                videoDAO.addVideo(video, true, moderador.getCodigo());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
