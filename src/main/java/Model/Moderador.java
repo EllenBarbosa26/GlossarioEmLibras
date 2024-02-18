@@ -20,4 +20,8 @@ public class Moderador extends Usuario {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
+
+
+
 }

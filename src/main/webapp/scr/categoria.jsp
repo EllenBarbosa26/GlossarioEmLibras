@@ -38,9 +38,9 @@
                 <%}
             %>
             <div class="barra-de-pesquisa">
-                <form class="form-pesquisa" action="">
-                    <input type="text" name="Pesquisa" id="pesquisa" placeholder="Pesquisar" required>
-                    <ion-icon class="ico-lupa" type="submit" name="search-outline"></ion-icon>
+                <form class="form-pesquisa" id="formPesquisa" action="pesquisar_categoria" method="get">
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar" required>
+                    <ion-icon class="ico-lupa" id="iconeLupa" type="submit" name="search-outline"></ion-icon>
                 </form>
             </div>
         </header>
@@ -89,6 +89,12 @@
             %>
         </div>
     </main>
+
+    <script>
+        document.getElementById('iconeLupa').addEventListener('click', function() {
+            document.getElementById('formPesquisa').submit();
+        });
+    </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

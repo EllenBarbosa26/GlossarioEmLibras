@@ -103,10 +103,15 @@ public class CategoriaDAO {
                     categoria.setNome(resultSet.getString(COLUMN_NAME));
                     String descricao = resultSet.getString(COLUMN_DESCRIPTION);
                     categoria.setDescricao(descricao != null ? descricao : "");
+                    String imagem = resultSet.getString(COLUMN_IMAGE);
+                    categoria.setImage(imagem != null ? imagem : "");
                     categoriasEncontradas.add(categoria);
                 }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return categoriasEncontradas;
-}
+    }
+
 }

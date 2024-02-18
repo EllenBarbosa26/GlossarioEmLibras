@@ -24,7 +24,7 @@ import java.util.List;
 import Model.Categoria;
 
 
-@WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria", "/apagar_categoria"})
+@WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria", "/apagar_categoria","/pesquisar_categoria"})
 @MultipartConfig
 public class CategoriaController extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(CategoriaController.class);
@@ -40,9 +40,42 @@ public class CategoriaController extends HttpServlet {
                 throw new RuntimeException(e);
             }
         } else if ("/adicionar_categoria".equals(action)) {
-
             add_categoria(request, response);
+        } else if ("/pesquisar_categoria".equals(action)) {
+            try {
+                pesquisar_categoria(request, response);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
+    }
+
+    private void pesquisar_categoria(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException, SQLException {
+        logger.debug("Chegou aqui");
+
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        List<Categoria> categorias;
+
+
+        String searchTerm = request.getParameter("pesquisa");
+
+        logger.debug("Termo da pesquisa: " + searchTerm);
+
+        if (searchTerm != null && !searchTerm.isEmpty()) {
+            logger.debug("Chegou aqui dentro do if");
+            // Se houver um termo de pesquisa, buscar apenas as categorias correspondentes
+            categorias = categoriaDAO.pesquisarCategorias(searchTerm);
+
+
+        } else {
+            // Caso contrário, buscar todas as categorias
+            logger.debug("Chegou aqui dentro do else");
+            categorias = categoriaDAO.getAllCategorias();
+        }
+
+        request.setAttribute("categorias", categorias);
+        RequestDispatcher rd = request.getRequestDispatcher("scr/categoria.jsp");
+        rd.forward(request, response);
     }
 
     @Override

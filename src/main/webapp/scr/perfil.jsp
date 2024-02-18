@@ -7,10 +7,17 @@
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
-    Boolean isModerador = (Boolean) session.getAttribute("isModerador");
+    Moderador moderador = (Moderador) session.getAttribute("moderador");
 
-    if (usuario == null && isModerador == null){
+    if (usuario == null && moderador == null){
         response.sendRedirect("../index.jsp");
+    }
+
+    String nome;
+    if (usuario != null) {
+        nome = usuario.getNome();
+    } else {
+        nome = moderador.getNome();
     }
 %>
 
@@ -139,7 +146,7 @@
             <div class="bio">
                 <img class="imag-perfil" src="scr/img/Usuario-img.jpg" alt="">
                 <div class="texto-bio">
-                    <h1 class="usuario">@<%= usuario.getNome()%></h1>
+                    <h1 class="usuario">@<%= nome %></h1>
                     <button class="editar-perfil">Editar Perfil</button>
                     <ion-icon class="icon-sair-perfil" name="log-out-outline"></ion-icon>
                 </div>
@@ -153,13 +160,14 @@
 
 
         <div class="conteinareditar" id="minhaDiv">
-            <form action="">
+            <form action="editar_perfil" method="post"  enctype="multipart/form-data">
                 <div class="imgediter">
                     <ion-icon class="x-sair" name="backspace-outline"></ion-icon>
-                    <input type="file" id="uploadInput" style="display: none;">
+                    <input type="file" name="uploadInput" id="uploadInput" style="display: none;">
                     <ion-icon class="camera-icon" name="camera-outline" onclick="openFileUploader()"></ion-icon>
                     <img class="img" src="scr/img/Usuario-img.jpg" alt="">
                     <input type="text" name="NovoNome" id="novonome" placeholder="@NovoNome" required>
+                    <input type="hidden" name="email" id="email" value="<%= usuario.getEmail()%>">
                 </div>
                 <div class="bionovotexto">
                     <textarea name="BioTexto" id="novotextobio" cols="30" rows="10" placeholder="Fale um pouco sobre você" oninput="limitarPalavrasEditar()" required></textarea>

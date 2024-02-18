@@ -7,11 +7,12 @@
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
-    Boolean isModerador = (Boolean) session.getAttribute("isModerador");
+    Moderador moderador = (Moderador) session.getAttribute("moderador");
 
-    if (usuario == null && isModerador == null){
+    if (usuario == null && moderador == null){
         response.sendRedirect("../index.jsp");
     }
+
 %>
 
 <head>

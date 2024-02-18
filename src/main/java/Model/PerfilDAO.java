@@ -42,4 +42,17 @@ public class PerfilDAO {
         return null;
     }
 
+    public void editarPerfil(Perfil perfil) throws SQLException {
+        String sql = "UPDATE perfis SET nome = ?, biografia = ?, foto = ? WHERE email = ?";
+        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setString(1, perfil.getNome());
+            ps.setString(2, perfil.getBiografia());
+            ps.setBytes(3, perfil.getFoto());
+            ps.setString(4, perfil.getEmail());
+            ps.executeUpdate();
+        }
+    }
+
+
+
 }
