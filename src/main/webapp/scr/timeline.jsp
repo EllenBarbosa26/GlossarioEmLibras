@@ -128,11 +128,32 @@
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
                     <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-
-
                 </div>
             </div>
             <%}%>
+
+                                                <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
+            <div class="videos">
+                <% if (video != null) { %>
+                <video class="video-test video-test2" src="<%= video.getArquivoUrl()%>" loop muted></video>
+                <div class="acoes-video">
+                    <div class="texto-video">
+                        <h1 class="nome-do-video nomevideo"><%= video.getTitle()%></h1>
+                        <% if (usuario != null) { %>
+                        <p class="usuario"><%= usuario.getNome()%></p>
+                        <% } else { %>
+                        <p class="usuario">Nome de usuário não disponível</p>
+                        <% } %>
+                    </div>
+                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
+                </div>
+                <% } else { %>
+                <p>Nenhum vídeo disponível</p>
+                <% } %>
+            </div>
+
 
 
             <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
