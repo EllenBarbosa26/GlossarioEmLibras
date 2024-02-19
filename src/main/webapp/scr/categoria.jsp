@@ -71,7 +71,7 @@
                 if (categorias != null && !categorias.isEmpty()) {
                     for (Categoria categoria : categorias) {
             %>
-            <button class="btnCategoria" >
+            <button class="btnCategoria" action="acessar_categoria">
                 <div class="catagoria" onclick="acessar_categoria('<%= categoria.getNome() %>')">
                     <div class="quant-videos">
                     </div>
@@ -113,7 +113,7 @@
     <script>
         function acessar_categoria(nomeCategoria){
             console.log('clicou na categoria:', nomeCategoria);
-            window.location.href = 'videos_categoria.jsp';
+            window.location.href = "timeline";
         }
     </script>
 

@@ -47,12 +47,6 @@ public class CategoriaController extends HttpServlet {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        } else if ("/acessar_categoria".equals(action)) {
-            try {
-                acessar_categoria(request, response);
-            } catch (SQLException e){
-                throw new RuntimeException(e);
-            }
         }
     }
 
@@ -95,9 +89,13 @@ public class CategoriaController extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }else if ("/apagar_categoria".equals(action)) {
-
             apagar_categoria(request, response);
-
+        } else if ("/acessar_categoria".equals(action)) {
+            try {
+                acessar_categoria(request, response);
+            } catch (SQLException e){
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -168,8 +166,6 @@ public class CategoriaController extends HttpServlet {
     protected void acessar_categoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException  {
         String categoria = request.getParameter("categoria");
 
-
-        String url = "../timeline" + categoria;
-        response.sendRedirect(url);
+        response.sendRedirect("/GlossarioEmLibra/videos_categoria");
     }
 }
