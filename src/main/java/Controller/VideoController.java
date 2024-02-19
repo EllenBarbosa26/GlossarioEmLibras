@@ -13,11 +13,14 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/add-video")
 @MultipartConfig
 public class VideoController extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(CategoriaController.class);
+    VideoDAO videoDAO = new VideoDAO();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getServletPath();
@@ -31,6 +34,13 @@ public class VideoController extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    private void get_video(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        List<Video> videos = videoDAO.getAllVideos();
+
+        request.setAttribute("videos", videos);
+        response.sendRedirect("/GlossarioEmLibra/timeline");
     }
 
     private void process_video(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {

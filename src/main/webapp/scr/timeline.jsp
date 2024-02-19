@@ -4,6 +4,7 @@
 <%@ page import="Model.Video" %>
 <%@ page import="Model.Categoria" %>
 <%@ page import="java.util.List" %>
+<%@ page import="Controller.VideoController" %>
 
 <!DOCTYPE html>
 
@@ -20,9 +21,10 @@
 <html lang="pt-br">
 
 <%
- Usuario usuario = (Usuario) session.getAttribute("usuario");
- Moderador moderador = (Moderador) session.getAttribute("moderador");
- Video video = (Video) session.getAttribute("video");
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    Moderador moderador = (Moderador) session.getAttribute("moderador");
+    Video video = (Video) session.getAttribute("video");
+    List<Video> videos = (List<Video>) request.getAttribute("videos");
 %>
 <% Boolean isModerador = (Boolean) session.getAttribute("isModerador");%>
 
@@ -134,23 +136,26 @@
 
                                                 <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
             <div class="videos">
-                <% if (video != null) { %>
-                <video class="video-test video-test2" src="<%= video.getArquivoUrl()%>" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo"><%= video.getTitle()%></h1>
-                        <% if (usuario != null) { %>
-                        <p class="usuario"><%= usuario.getNome()%></p>
-                        <% } else { %>
-                        <p class="usuario">Nome de usuário não disponível</p>
-                        <% } %>
+                <% if (videos != null) { %>
+                <% for(int i=0; i<videos.size(); i++){ %>
+                    <video class="video-test video-test2" src="<%= videos.get(i).getArquivoUrl()%>" loop muted></video>
+                    <div class="acoes-video">
+                        <div class="texto-video">
+                            <h1 class="nome-do-video nomevideo"><%= videos.get(i).getTitle()%></h1>
+                            <% if (usuario != null) { %>
+                            <p class="usuario"><%= usuario.getNome()%></p>
+                            <% } else { %>
+                            <p class="usuario">@Usuário</p>
+                            <% } %>
+                        </div>
+                        <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+                        <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+                        <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                     </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
+               <% } %>
+
                 <% } else { %>
-                <p>Nenhum vídeo disponível</p>
+                <p>Sem mais vídeos disponíveis</p>
                 <% } %>
             </div>
 
