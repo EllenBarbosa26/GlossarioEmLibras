@@ -26,6 +26,15 @@
     <script src="scr/Javc/scripttamiline.js"></script>
     <script src="scr/Javc/categoria.js"></script>
     <title>LibrasDev</title>
+
+    <style>
+        .btnCategoria{
+            border: none;
+            background-color: transparent;
+            border-radius: 25px;
+        }
+    </style>
+
 </head>
 <body>
     <jsp:include page="../aside.jsp"/>
@@ -62,17 +71,18 @@
                 if (categorias != null && !categorias.isEmpty()) {
                     for (Categoria categoria : categorias) {
             %>
-            <div class="catagoria">
-                <div class="quant-videos">
-                    <p class="quantidade">9</p>
-                    <p class="videos">Videos</p>
-                </div>
-                <img class="imagcategoria" src="<%= categoria.getImage()%>" alt="imagem da categoria">
-                <p><%= categoria.getNome() %></p>
-                <% if (moderador != null) { %>
+            <button class="btnCategoria" >
+                <div class="catagoria" onclick="acessar_categoria('<%= categoria.getNome() %>')">
+                    <div class="quant-videos">
+                    </div>
+                    <img class="imagcategoria" src="<%= categoria.getImage()%>" alt="imagem da categoria">
+                    <p><%= categoria.getNome() %></p>
+                    <% if (moderador != null) { %>
                     <ion-icon class="lixeira" name="trash-outline"></ion-icon>
-                <% } %>
-            </div>
+                    <% } %>
+                </div>
+            </button>
+
             <div class="conteiner-Apagar-Categoria">
                 <% if (moderador != null) { %>
                     <p class="msg-de-Aterta">Você realmente deseja apagar esta categoria ?</p>
@@ -99,5 +109,13 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="Javc/scripttamiline.js"></script>
+
+    <script>
+        function acessar_categoria(nomeCategoria){
+            console.log('clicou na categoria:', nomeCategoria);
+            window.location.href = 'videos_categoria.jsp';
+        }
+    </script>
+
 </body>
 </html>

@@ -142,10 +142,11 @@
                 </div>
             <%}%>--%>
 
-                                                <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
-            <div class="videos">
+
+                                                 <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
                 <% if (videos != null) { %>
                 <% for(int i=0; i<videos.size(); i++){ %>
+                <div class="videos">
                     <video class="video-test video-test2" src="<%= videos.get(i).getArquivoUrl()%>" loop muted></video>
                     <div class="acoes-video">
                         <div class="texto-video">
@@ -160,15 +161,11 @@
                         <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
                         <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                     </div>
+                </div>
                <% } %>
                 <% } else { %>
                 <p>Sem mais vídeos disponíveis</p>
                 <% } %>
-            </div>
-
-            <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-            <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-            <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
 
         </div>
 

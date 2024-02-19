@@ -24,7 +24,7 @@ import java.util.List;
 import Model.Categoria;
 
 
-@WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria", "/apagar_categoria","/pesquisar_categoria"})
+@WebServlet(urlPatterns = {"/categoria","/adicionar_categoria", "/processar_categoria", "/apagar_categoria","/pesquisar_categoria", "/acessar_categoria"})
 @MultipartConfig
 public class CategoriaController extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(CategoriaController.class);
@@ -45,6 +45,12 @@ public class CategoriaController extends HttpServlet {
             try {
                 pesquisar_categoria(request, response);
             } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else if ("/acessar_categoria".equals(action)) {
+            try {
+                acessar_categoria(request, response);
+            } catch (SQLException e){
                 throw new RuntimeException(e);
             }
         }
@@ -157,5 +163,13 @@ public class CategoriaController extends HttpServlet {
 
         response.sendRedirect("/GlossarioEmLibra/categoria");
 
+    }
+
+    protected void acessar_categoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException  {
+        String categoria = request.getParameter("categoria");
+
+
+        String url = "../timeline" + categoria;
+        response.sendRedirect(url);
     }
 }
