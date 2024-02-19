@@ -84,20 +84,29 @@
         </div>
 
         <div class="conteiner-comentario">
-        <div class="video-demostracao">
-                        <ion-icon class="icon-x-comentario" name="close"></ion-icon>
-                        <video class="video-test" src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4"
-                            loop muted></video>
-                        <div class="texto-video">
-                            <h1 class="novonome">Nome do video</h1>
-                            <p class="usuario">@Usuário</p>
-                        </div>
+            <div class="video-demostracao">
+                <ion-icon class="icon-x-comentario" name="close"></ion-icon>
+                <video class="video-test" src="video/Vídeo%20do%20WhatsApp%20de%202024-01-31%20à(s)%2011.47.19_2e786a6f.mp4" loop muted></video>
+                <div class="texto-video">
+                    <%--<%for (int i = 0; i < videos.size(); i++){%>
+                        <h1 class="novonome"><%= videos.get(i).getTitle()%></h1>
+                        <%if (usuario != null){%>
+                        <%
+                            int userID = videos.get(i).getUserId();
+                            String nomeUsuario = usuario.getNomeUsuarioPorID(userID);
+                        %>
+                        <p class="usuario"><%= nomeUsuario %></p>
+                        <%}%>
+                    <%}%>
+                &lt;%&ndash;<p class="usuario"><%= nomeUsuario %></p>&ndash;%&gt;--%>
+                </div>
+
+                <ion-icon name="heart-outline" class="icon comentarioheart icon-sem-curtida"></ion-icon>
+                <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
+                <p class="numero-de-curtidas">349</p>
+            </div>
 
 
-                        <ion-icon name="heart-outline" class=" icon comentarioheart icon-sem-curtida"></ion-icon>
-                        <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
-                        <p class="numero-de-curtidas">349</p>
-                    </div>
 
             <div class="formulario-comentario">
                 <form action="">
@@ -117,22 +126,21 @@
 
         <div class="conteiner-video">
 
-
-<% for(int i = 0; i <20; i++) {%>
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                        <p class="usuario">@Usuário</p>
+            <%--<% for(int i = 0; i <20; i++) {%>
+                <div class="videos">
+                    <video class="video-test video-test2"
+                        src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" loop muted></video>
+                    <div class="acoes-video">
+                        <div class="texto-video">
+                            <h1 class="nome-do-video nomevideo">Nome do video</h1>
+                            <p class="usuario">@Usuário</p>
+                        </div>
+                        <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+                        <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+                        <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                     </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                 </div>
-            </div>
-            <%}%>
+            <%}%>--%>
 
                                                 <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
             <div class="videos">
@@ -153,28 +161,23 @@
                         <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                     </div>
                <% } %>
-
                 <% } else { %>
                 <p>Sem mais vídeos disponíveis</p>
                 <% } %>
             </div>
 
-
-
             <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
             <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
             <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
 
-
         </div>
-    </div>
-
 
     </main>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="scr/Javc/scripttamiline.js"></script>
+
     <script>
         function openFileUploaderTimeline() {
             const uploadInput = document.getElementById('uploadInput');
@@ -182,7 +185,6 @@
                 console.error("Elemento 'uploadInput' não encontrado.");
                 return;
             }
-
             uploadInput.click();
         }
     </script>

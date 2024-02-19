@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.*;
+
 public class Usuario {
 
     private String nome;
@@ -65,4 +67,50 @@ public class Usuario {
     public String getPassword() {
         return senha;
     }
+
+    public String getNomeUsuarioPorID(int usuarioID) {
+        String nomeUsuario = "";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/librasdev?user=root", "root", "@102938luk");
+
+            String query;
+            if (usuarioID < 1000) { // Assumindo que IDs de usuário são menores que 1000
+                query = "SELECT username FROM user WHERE id = ?";
+            } else {
+                query = "SELECT username FROM admin WHERE id = ?";
+            }
+
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, usuarioID);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomeUsuario = rs.getString("username");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return nomeUsuario;
+    }
+
+
 }
