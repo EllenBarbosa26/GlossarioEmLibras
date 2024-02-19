@@ -126,27 +126,11 @@
 
         <div class="conteiner-video">
 
-            <%--<% for(int i = 0; i <20; i++) {%>
-                <div class="videos">
-                    <video class="video-test video-test2"
-                        src="scr/video/Vбdeo%20do%20WhatsApp%20de%202024-01-22%20Е(s)%2009.32.10_2e5356ff.mp4" loop muted></video>
-                    <div class="acoes-video">
-                        <div class="texto-video">
-                            <h1 class="nome-do-video nomevideo">Nome do video</h1>
-                            <p class="usuario">@Usuário</p>
-                        </div>
-                        <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                        <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                        <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                    </div>
-                </div>
-            <%}%>--%>
 
-
-                                                 <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
+                                                <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
+            <div class="videos">
                 <% if (videos != null) { %>
                 <% for(int i=0; i<videos.size(); i++){ %>
-                <div class="videos">
                     <video class="video-test video-test2" src="<%= videos.get(i).getArquivoUrl()%>" loop muted></video>
                     <div class="acoes-video">
                         <div class="texto-video">
@@ -161,11 +145,15 @@
                         <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
                         <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                     </div>
-                </div>
                <% } %>
                 <% } else { %>
                 <p>Sem mais vídeos disponíveis</p>
                 <% } %>
+            </div>
+
+            <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
+            <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
+            <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
 
         </div>
 
@@ -185,6 +173,17 @@
             uploadInput.click();
         }
     </script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
 
 </body>
 
