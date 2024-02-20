@@ -97,4 +97,19 @@ public class VideoDAO {
 
         return new Video(videoId, title, arquivoUrl, uploadDate, userId, categoryId);
     }
+    public List<Video> getVideosByCategoria(int categoryId) throws SQLException {
+        List<Video> videos = new ArrayList<>();
+        String sql = "SELECT * FROM video WHERE category_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, categoryId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    videos.add(createVideoFromResultSet(resultSet));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao obter vídeos por categoria", e);
+        }
+        return videos;
+    }
 }

@@ -42,7 +42,7 @@
 
     <main>
             <header class="header-categoria">
-                <a href="/scr/timeline.html">
+                <a href="timeline">
                     <h1 class="textolibras">LibrasDev</h1>
                 </a>
             </header>

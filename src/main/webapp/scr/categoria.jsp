@@ -40,7 +40,7 @@
     <jsp:include page="../aside.jsp"/>
     <main>
         <header class="header-categoria">
-            <a href="timeline.jsp"><h1 class="textolibras">LibrasDev</h1></a>
+            <a href="timeline"><h1 class="textolibras">LibrasDev</h1></a>
             <%
                 if (moderador != null){%>
                     <ion-icon class="icon-publicar" name="duplicate-outline"></ion-icon>
@@ -71,17 +71,21 @@
                 if (categorias != null && !categorias.isEmpty()) {
                     for (Categoria categoria : categorias) {
             %>
-            <button class="btnCategoria" action="acessar_categoria">
-                <div class="catagoria" onclick="acessar_categoria('<%= categoria.getNome() %>')">
-                    <div class="quant-videos">
+
+                <button class="btnCategoria">
+                    <div class="catagoria" >
+                        <div class="quant-videos">
+                        </div>
+
+                        <img class="imagcategoria" onclick="acessar_categoria('<%= categoria.getId() %>')" src="<%= categoria.getImage()%>" alt="imagem da categoria">
+
+                        <p><%= categoria.getNome() %></p>
+                        <% if (moderador != null) { %>
+                        <ion-icon class="lixeira" name="trash-outline"></ion-icon>
+                        <% } %>
                     </div>
-                    <img class="imagcategoria" src="<%= categoria.getImage()%>" alt="imagem da categoria">
-                    <p><%= categoria.getNome() %></p>
-                    <% if (moderador != null) { %>
-                    <ion-icon class="lixeira" name="trash-outline"></ion-icon>
-                    <% } %>
-                </div>
-            </button>
+                </button>
+
 
             <div class="conteiner-Apagar-Categoria">
                 <% if (moderador != null) { %>
@@ -111,9 +115,11 @@
     <script src="Javc/scripttamiline.js"></script>
 
     <script>
-        function acessar_categoria(nomeCategoria){
-            console.log('clicou na categoria:', nomeCategoria);
-            window.location.href = "timeline";
+        function acessar_categoria(idCategoria){
+            console.log('clicou na categoria:', idCategoria);
+            var url = "exibir_videos?categoria=" + encodeURIComponent(idCategoria);
+            // Redirecionar para a página do controlador
+            window.location.href = url;
         }
     </script>
 

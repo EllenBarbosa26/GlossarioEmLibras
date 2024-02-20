@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.Moderador" %>
+<%@ page import="Model.Perfil" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,6 +9,7 @@
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     Moderador moderador = (Moderador) session.getAttribute("moderador");
+    Perfil perfil = (Perfil) session.getAttribute("perfil");
 
     if (usuario == null && moderador == null){
         response.sendRedirect("../index.jsp");
@@ -18,6 +20,12 @@
         nome = usuario.getNome();
     } else {
         nome = moderador.getNome();
+    }
+    String email;
+    if ( usuario != null) {
+        email = usuario.getEmail();
+    }else {
+        email = moderador.getEmail();
     }
 %>
 
@@ -151,7 +159,7 @@
                     <ion-icon class="icon-sair-perfil" name="log-out-outline"></ion-icon>
                 </div>
                 <div class="legenda-bio">
-                    <p class="textodabio">Meu nome é Hitalmo Fernandes, sou intérprete de Libras há mais de 3 anos.</p>
+                    <p class="textodabio">Seja bem-vindo(a) ao meu perfil!</p>
                 </div>
 
             </div>
@@ -167,7 +175,7 @@
                     <ion-icon class="camera-icon" name="camera-outline" onclick="openFileUploader()"></ion-icon>
                     <img class="img" src="scr/img/Usuario-img.jpg" alt="">
                     <input type="text" name="NovoNome" id="novonome" placeholder="@NovoNome" required>
-                    <input type="hidden" name="email" id="email" value="<%= usuario.getEmail()%>">
+                    <input type="hidden" name="email" id="email" value="<%= email %>">
                 </div>
                 <div class="bionovotexto">
                     <textarea name="BioTexto" id="novotextobio" cols="30" rows="10" placeholder="Fale um pouco sobre você" oninput="limitarPalavrasEditar()" required></textarea>

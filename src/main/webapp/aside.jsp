@@ -22,7 +22,7 @@
         </p>
     </header>
 
-    <form action="perfil">
+    <form action="perfil" method="post">
         <button class="button-sidebar">
             <div>
                 <ion-icon class="icon-sidebar" name="person-outline"></ion-icon>
