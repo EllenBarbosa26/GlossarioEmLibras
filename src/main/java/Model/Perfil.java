@@ -8,10 +8,10 @@ import javax.imageio.ImageIO;
 
 public class Perfil extends Usuario {
     private String biografia;
-    private byte[] foto;
+    private String foto;
 
-    public Perfil(String nome, String email, String senha, String biografia, byte[] foto) {
-        super(nome, email);
+    public Perfil(String nome, String biografia, String foto) {
+        super(nome);
         this.biografia = biografia;
         this.foto = foto;
     }
@@ -46,11 +46,11 @@ public class Perfil extends Usuario {
         this.biografia = biografia;
     }
 
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 

@@ -2,6 +2,9 @@
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.Moderador" %>
 <%@ page import="Model.Perfil" %>
+<%@ page import="Model.Video" %>
+<%@ page import="Model.Categoria" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,6 +13,8 @@
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     Moderador moderador = (Moderador) session.getAttribute("moderador");
     Perfil perfil = (Perfil) session.getAttribute("perfil");
+    Video video = (Video) session.getAttribute("video");
+    List<Video> videos = (List<Video>) request.getAttribute("videos");
 
     if (usuario == null && moderador == null){
         response.sendRedirect("../index.jsp");
@@ -40,77 +45,104 @@
     <title>LibrasDev</title>
 
     <style>
-    .icon-sair-perfil {
-        font-size: 28px;
-        margin-left: 10px;
-        margin-top: 6px;
-        cursor: pointer;
-        color: rgb(112, 97, 171);
-        transition: all 0.2s;
-    }
+        .icon-sair-perfil {
+            font-size: 28px;
+            margin-left: 10px;
+            margin-top: 6px;
+            cursor: pointer;
+            color: rgb(112, 97, 171);
+            transition: all 0.2s;
+        }
 
-    .icon-sair-perfil:hover {
-        transform: scale(1.2);
-    }
+        .icon-sair-perfil:hover {
+            transform: scale(1.2);
+        }
 
-    .conteiner-sair-perfil{
-        position: absolute;
-        margin-left: 120px;
-        border: solid 1px rgba(151, 131, 230, 1);
-        width: 450px;
-        margin-top: 20px;
-        height: 170px;
-        border-radius: 15px;
-        background-color: rgba(255, 255, 255, 0.884);
-        backdrop-filter: blur(8px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-height: 500px;
-        overflow-y: auto;
-        z-index: 1000;
-        display: none;
-    }
+        .conteiner-sair-perfil{
+            position: absolute;
+            margin-left: 120px;
+            border: solid 1px rgba(151, 131, 230, 1);
+            width: 450px;
+            margin-top: 20px;
+            height: 170px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.884);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-height: 500px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
 
-    .msg-sair{
-        text-align: center;
-    }
+        .msg-sair{
+            text-align: center;
+        }
 
-    .button-Nao{
-        position: absolute;
-        background-color: rgba(151, 131, 230, 1);
-        border:none;
-        width: 100px;
-        height: 35px;
-        border-radius: 15px;
-        color: #ffffff;
-        transition: transform 0.3s;
-        cursor: pointer;
-        margin-top: 20px;
-        margin-left: 260px;
-    }
+        .button-Nao{
+            position: absolute;
+            background-color: rgba(151, 131, 230, 1);
+            border:none;
+            width: 100px;
+            height: 35px;
+            border-radius: 15px;
+            color: #ffffff;
+            transition: transform 0.3s;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 260px;
+        }
 
-    .button-Sim{
-        position: absolute;
-        background-color: rgba(151, 131, 230, 1);
-        border:none;
-        width: 100px;
-        height: 35px;
-        border-radius: 15px;
-        color: #ffffff;
-        transition: transform 0.3s;
-        cursor: pointer;
-        margin-top: 20px;
-        margin-left: 100px;
-    }
+        .button-Sim{
+            position: absolute;
+            background-color: rgba(151, 131, 230, 1);
+            border:none;
+            width: 100px;
+            height: 35px;
+            border-radius: 15px;
+            color: #ffffff;
+            transition: transform 0.3s;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 100px;
+        }
 
-    .button-Nao:hover{
-        transform: scale(1.1);
-    }
+        .button-Nao:hover{
+            transform: scale(1.1);
+        }
 
-    .button-Sim:hover{
-        transform: scale(1.1);
-    }
+        .button-Sim:hover{
+            transform: scale(1.1);
+        }
+
+        .conteinareditar {
+            position: absolute;
+            margin-left: 320px;
+            border: solid 1px rgba(151, 131, 230, 1);
+            width: 400px;
+            margin-top: -230px;
+            height: 500px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.452);
+            backdrop-filter: blur(8px);
+            display: none;
+        }
+
+        .conteinareditar button {
+            font-family: 'Space Mono', monospace;
+            border: solid 1px rgba(151, 131, 230, 0.418);
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: rgba(151, 131, 230, 0.119);
+            margin-left: 285px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 99;
+        }
     </style>
     <!-- codigo para abrir o msg-sair -->
     <script>
@@ -152,33 +184,43 @@
 
         <header class="bio-perfil">
             <div class="bio">
-                <img class="imag-perfil" src="scr/img/Usuario-img.jpg" alt="">
+                <% if (usuario.getAvatar_url() != null) { %>
+                <img class="imag-perfil" src="<%= usuario.getAvatar_url() %>" alt="">
+                <% } else { %>
+                <img class="imag-perfil" src="scr/img/Usuario-img.jpg" alt="Imagem Padrão">
+                <% } %>
+
                 <div class="texto-bio">
                     <h1 class="usuario">@<%= nome %></h1>
                     <button class="editar-perfil">Editar Perfil</button>
                     <ion-icon class="icon-sair-perfil" name="log-out-outline"></ion-icon>
                 </div>
+
                 <div class="legenda-bio">
-                    <p class="textodabio">Seja bem-vindo(a) ao meu perfil!</p>
+                    <% if (usuario.getBio() != null) { %>
+                    <p class="textodabio"><%= usuario.getBio() %></p>
+                    <% } else { %>
+                    <!-- Coloque a biografia padrão que deseja exibir -->
+                    <p class="textodabio">Bem vindo ao meu perfil!</p>
+                    <% } %>
                 </div>
-
             </div>
-
         </header>
 
 
-        <div class="conteinareditar" id="minhaDiv">
-            <form action="editar_perfil" method="post"  enctype="multipart/form-data">
+
+        <div class="conteinareditar">
+            <form action="editar_perfil" method="post" enctype="multipart/form-data">
                 <div class="imgediter">
                     <ion-icon class="x-sair" name="backspace-outline"></ion-icon>
                     <input type="file" name="uploadInput" id="uploadInput" style="display: none;">
                     <ion-icon class="camera-icon" name="camera-outline" onclick="openFileUploader()"></ion-icon>
                     <img class="img" src="scr/img/Usuario-img.jpg" alt="">
-                    <input type="text" name="NovoNome" id="novonome" placeholder="@NovoNome" required>
+                    <input type="text" name="novonome" id="novonome" placeholder="@NovoNome" required>
                     <input type="hidden" name="email" id="email" value="<%= email %>">
                 </div>
                 <div class="bionovotexto">
-                    <textarea name="BioTexto" id="novotextobio" cols="30" rows="10" placeholder="Fale um pouco sobre você" oninput="limitarPalavrasEditar()" required></textarea>
+                    <textarea name="novotextobio" id="novotextobio" cols="30" rows="10" placeholder="Fale um pouco sobre você" oninput="limitarPalavrasEditar()" required></textarea>
                     <p id="contagem-palavras">0/20 palavras</p>
                 </div>
                 <button class="submitbutton" type="submit">Editar</button>
@@ -239,75 +281,29 @@
         </div>
 
         <div class="conteiner-video">
-
+            <%-- VIDEOS ADICIONADOS NO BANCO DE DADOS --%>
+            <% if (videos != null) { %>
+            <% for(int i=0; i<videos.size(); i++){ %>
             <div class="videos">
-
-                <video class="video-test" src="video/Vídeo_teste.mp4" loop muted></video>
+                <video class="video-test video-test2" src="<%= videos.get(i).getArquivoUrl()%>" loop muted></video>
                 <div class="acoes-video">
                     <div class="texto-video">
-                        <h1 class="nome-do-video novonome">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
+                        <h1 class="nome-do-video nomevideo"><%= videos.get(i).getTitle()%></h1>
+                        <% if (usuario != null) { %>
+                        <p class="usuario"><%= usuario.getNome()%></p>
+                        <% } else { %>
+                        <p class="usuario">@Usuário</p>
+                        <% } %>
                     </div>
                     <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
                     <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
                     <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
                 </div>
             </div>
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video novonome">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video novonome">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video novonome">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
-
-            <div class="videos">
-                <video class="video-test video-test2"
-                    src="video/Vídeo do WhatsApp de 2024-01-22 à(s) 09.32.10_2e5356ff.mp4" loop muted></video>
-                <div class="acoes-video">
-                    <div class="texto-video">
-                        <h1 class="nome-do-video">Nome do video</h1>
-                        <p class="usuario">@Usuario</p>
-                    </div>
-                    <ion-icon name="chatbubbles-outline" class="icon icon-cometario"></ion-icon>
-                    <ion-icon name="heart-outline" class=" icon icon-sem-curtida"></ion-icon>
-                    <ion-icon name="heart" class=" icon icon-com-curtida"></ion-icon>
-                </div>
-            </div>
+            <% } %>
+            <% } else { %>
+            <p>Sem mais vídeos disponíveis</p>
+            <% } %>
 
         </div>
     </main>

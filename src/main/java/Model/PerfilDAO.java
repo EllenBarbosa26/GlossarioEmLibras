@@ -8,46 +8,26 @@ import java.sql.SQLException;
 public class PerfilDAO {
     private Connection conexao;
 
-    public PerfilDAO(Connection conexao) {
-        this.conexao = conexao;
+    public PerfilDAO() {
     }
 
     public void inserirPerfil(Perfil perfil) throws SQLException {
-        String sql = "INSERT INTO perfis (nome, email, senha, biografia, foto) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO profile (nome, email, biografia, foto) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conexao.prepareStatement(sql)) {
             ps.setString(1, perfil.getNome());
             ps.setString(2, perfil.getEmail());
-            ps.setString(3, perfil.getSenha());
             ps.setString(4, perfil.getBiografia());
-            ps.setBytes(5, perfil.getFoto());
+            ps.setString(5, perfil.getFoto());
             ps.executeUpdate();
         }
     }
 
-    public Perfil obterPerfilPorEmail(String email) throws SQLException {
-        String sql = "SELECT * FROM perfis WHERE email = ?";
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
-            ps.setString(1, email);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    String nome = rs.getString("nome");
-                    String senha = rs.getString("senha");
-                    String biografia = rs.getString("biografia");
-                    byte[] foto = rs.getBytes("foto");
-
-                    return new Perfil(nome, email, senha, biografia, foto);
-                }
-            }
-        }
-        return null;
-    }
-
     public void editarPerfil(Perfil perfil) throws SQLException {
-        String sql = "UPDATE perfis SET nome = ?, biografia = ?, foto = ? WHERE email = ?";
+        String sql = "UPDATE profile SET name = ?, bio = ?, avatar_url = ? WHERE email = ?";
         try (PreparedStatement ps = conexao.prepareStatement(sql)) {
             ps.setString(1, perfil.getNome());
             ps.setString(2, perfil.getBiografia());
-            ps.setBytes(3, perfil.getFoto());
+            ps.setString(3, perfil.getFoto());
             ps.setString(4, perfil.getEmail());
             ps.executeUpdate();
         }

@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
@@ -98,37 +95,36 @@ public class PerfilController extends HttpServlet {
 
         String email = request.getParameter("email"); // Certifique-se de ter o campo email no formulário
 
-        logger.error("email: ", email);
+        logger.error("email: " + email);
 
         // Obter informações atualizadas
-        String novoNome = request.getParameter("NovoNome");
-        String novaBiografia = request.getParameter("NovoBiografia");
+        String novoNome = request.getParameter("novonome");
+        String novaBiografia = request.getParameter("novotextobio");
 
-        logger.error("nome: ", novoNome);
-        logger.error("Biografia: ", novaBiografia);
+        logger.error("nome: " + novoNome);
+        logger.error("Biografia: " + novaBiografia);
 
         // Processar a imagem, se houver uma nova
         Part imagemPart = request.getPart("uploadInput");
-        byte[] novaFoto = null;
+        String imagemNome = Paths.get(imagemPart.getSubmittedFileName()).getFileName().toString();
 
-        if (imagemPart.getSize() > 0) {
-            // Processar a nova imagem
-            InputStream input = imagemPart.getInputStream();
-            novaFoto = IOUtils.toByteArray(input);
+        String caminhoImagem = "src/main/webapp/scr/img-perfil/" + imagemNome;
+
+        try (InputStream input = imagemPart.getInputStream();
+             OutputStream output = Files.newOutputStream(new File(caminhoImagem).toPath())) {
+            IOUtils.copy(input, output);
         }
 
-        // Criar objeto Perfil com as informações atualizadas
-        Perfil perfilAtualizado = new Perfil(novoNome, email, null, novaBiografia, novaFoto);
+        String caminhoRelativo = "scr/img-perfil/" + imagemNome;
 
         // Atualizar o perfil no banco de dados
-//        PerfilDAO perfilDAO = new PerfilDAO(seuObjetoConnection); // Substitua "seuObjetoConnection" pela sua instância de conexão
-//        perfilDAO.editarPerfil(perfilAtualizado);
+        UsuarioDAO userDao = new UsuarioDAO();
+        userDao.editarUsuario(email, caminhoRelativo, novaBiografia);
 
         // Redirecionar de volta para a página de perfil ou outra página apropriada
-        response.sendRedirect("/caminho/para/pagina/de/perfil");
+        RequestDispatcher rd = request.getRequestDispatcher("scr/perfil.jsp");
+        rd.forward(request, response);
     }
-
-
     protected void perfil(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.debug("Chegou aqui");
         RequestDispatcher rd = request.getRequestDispatcher("scr/perfil.jsp");

@@ -173,20 +173,6 @@ main {
     transition: all 0.2s;
 }
 
-.conteinareditar {
-    position: absolute;
-    margin-left: 320px;
-    border: solid 1px rgba(151, 131, 230, 1);
-    width: 400px;
-    margin-top: -310px;
-    height: 500px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.452);
-    backdrop-filter: blur(8px);
-    display: none;
-    cursor: grab;
-}
-
 .imgediter input {
     position: absolute;
     outline: none;
@@ -229,19 +215,6 @@ main {
     margin-top: 79px;
     cursor: pointer;
     transition: all 0.2s;
-}
-
-.conteinareditar button {
-    font-family: 'Space Mono', monospace;
-    border: solid 1px rgba(151, 131, 230, 0.418);
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: rgba(151, 131, 230, 0.119);
-    margin-left: 285px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
 }
 
 #contagem-palavras {

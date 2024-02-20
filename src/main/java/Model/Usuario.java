@@ -7,12 +7,15 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private String avatar_url;
+    private String bio;
     private int codigo;
 
-    public Usuario(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
+
+//    public Usuario(String nome, String email) {
+//        this.nome = nome;
+//        this.email = email;
+//    }
 
     public Usuario(String nome, String senha, String email) {
         this.nome = nome;
@@ -24,6 +27,23 @@ public class Usuario {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.codigo = codigo;
+    }
+
+    public Usuario(String nome) {
+    }
+
+    public Usuario(String avatar_url, String bio){
+        this.avatar_url = avatar_url;
+        this.bio = bio;
+    }
+
+    public Usuario(String nome, String email, String senha, String avatar_url, String bio, int codigo) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.avatar_url = avatar_url;
+        this.bio = bio;
         this.codigo = codigo;
     }
 
@@ -66,6 +86,22 @@ public class Usuario {
 
     public String getPassword() {
         return senha;
+    }
+
+    public String getAvatar_url() {
+        return avatar_url;
+    }
+
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public String getNomeUsuarioPorID(int usuarioID) {

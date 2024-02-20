@@ -71,6 +71,8 @@ public class UsuarioDAO {
                             rs.getString("username"),
                             rs.getString("email"),
                             rs.getString("password"),
+                            rs.getString("avatar_url"),
+                            rs.getString("bio"),
                             rs.getInt("user_id")
                     );
                     return usuarioBD;
@@ -120,6 +122,8 @@ public class UsuarioDAO {
                             rs.getString("username"),
                             rs.getString("email"),
                             rs.getString("password"),
+                            rs.getString("avatar_url"),
+                            rs.getString("bio"),
                             rs.getInt("user_id")
                     );
                     return usuarioBD;
@@ -131,4 +135,22 @@ public class UsuarioDAO {
 
         return null;
     }
+
+    public void editarUsuario(String email, String novoAvatarUrl, String novaBio) {
+        String editarUsuarioQuery = "UPDATE user SET avatar_url = ?, bio = ? WHERE email = ?";
+
+        try (Connection conexao = obterConexao();
+             PreparedStatement pstmt = conexao.prepareStatement(editarUsuarioQuery)) {
+
+            pstmt.setString(1, novoAvatarUrl);
+            pstmt.setString(2, novaBio);
+            pstmt.setString(3, email);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
