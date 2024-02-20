@@ -100,7 +100,7 @@
                     <%}%>
                 &lt;%&ndash;<p class="usuario"><%= nomeUsuario %></p>&ndash;%&gt;--%>
                 </div>
-
+                <ion-icon name="options-outline" class="icon opcoes-especiais"></ion-icon>
                 <ion-icon name="heart-outline" class="icon comentarioheart icon-sem-curtida"></ion-icon>
                 <ion-icon name="heart" class="icon comentarioheart icon-com-curtida"></ion-icon>
                 <p class="numero-de-curtidas">349</p>
