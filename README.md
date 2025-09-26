@@ -1,7 +1,7 @@
 <!-- Banner / Capa -->
 <p align="center">
   <!-- Coloque aqui uma imagem ou print do projeto -->
-  <img src="https://i.pinimg.com/originals/38/bc/46/38bc4680ff8118238038195942744d91.gif" alt="Banner do projeto" />
+  <img src="https://i.pinimg.com/originals/3e/60/f6/3e60f675f35799e95fb595ed43a06f16.gif" alt="Banner do projeto" />
 </p>
 
 <h1 align="center">🌐🤟 Glossário em Libras</h1>
